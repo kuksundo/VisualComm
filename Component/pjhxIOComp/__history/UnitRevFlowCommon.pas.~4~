@@ -1,0 +1,29 @@
+unit UnitRevFlowCommon;
+
+interface
+
+uses classes, System.SysUtils,
+  pjhiPipe2_pjh, pjhiPipeJoint2_pjh, pjhPipeFlowInterface;
+
+procedure SetCommonRevPrevStep(ASrc, ADest: TComponent);
+procedure SetCommonNilRevPrevStep(ASrc, ADest: TComponent);
+
+implementation
+
+procedure SetCommonRevPrevStep(ASrc, ADest: TComponent);
+var
+  LPFI: IpjhPipeFlowInterface;
+begin
+  if Supports(ADest, IpjhPipeFlowInterface, LPFI) then
+    LPFI.SetAutoRevPrevStep(ASrc);
+end;
+
+procedure SetCommonNilRevPrevStep(ASrc, ADest: TComponent);
+var
+  LPFI: IpjhPipeFlowInterface;
+begin
+  if Supports(ADest, IpjhPipeFlowInterface, LPFI) then
+    LPFI.SetNilRevPrevStep(ASrc);
+end;
+
+end.

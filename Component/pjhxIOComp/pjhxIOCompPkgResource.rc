@@ -1,0 +1,7 @@
+TpjhiLedArrow_pjh BITMAP "..\\..\\..\\HiMECS\\Application\\Resource\\TpjhiLedArrow.bmp"
+TpjhiMotor_pjh BITMAP "..\\..\\..\\HiMECS\\Application\\Resource\\TpjhiMotor.bmp"
+TpjhiPipe_pjh BITMAP "..\\..\\..\\HiMECS\\Application\\Resource\\TpjhiPipe.bmp"
+TpjhiPipeJoint_pjh BITMAP "..\\..\\..\\HiMECS\\Application\\Resource\\TpjhiPipeJoint.bmp"
+TpjhiTank_pjh BITMAP "..\\..\\..\\HiMECS\\Application\\Resource\\TpjhiTank.bmp"
+TpjhiValve_pjh BITMAP "..\\..\\..\\HiMECS\\Application\\Resource\\TpjhiValve.bmp"
+TpjhiPanel_jvGIFAni_pjh BITMAP "..\\..\\..\\HiMECS\\Application\\Resource\\TpjhiPanel_jvGIFAni_pjh.bmp"

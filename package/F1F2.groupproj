@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{4177A4C8-C68B-4B95-85DD-12B880029AA6}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="F2_pjhPackageUnits.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="F1_pjhPackageUnits.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Component\pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="F2_pjhPackageUnits">
+        <MSBuild Projects="F2_pjhPackageUnits.dproj"/>
+    </Target>
+    <Target Name="F2_pjhPackageUnits:Clean">
+        <MSBuild Projects="F2_pjhPackageUnits.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="F2_pjhPackageUnits:Make">
+        <MSBuild Projects="F2_pjhPackageUnits.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="F1_pjhPackageUnits">
+        <MSBuild Projects="F1_pjhPackageUnits.dproj"/>
+    </Target>
+    <Target Name="F1_pjhPackageUnits:Clean">
+        <MSBuild Projects="F1_pjhPackageUnits.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="F1_pjhPackageUnits:Make">
+        <MSBuild Projects="F1_pjhPackageUnits.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhDelphiStandardPkg">
+        <MSBuild Projects="..\Component\pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj"/>
+    </Target>
+    <Target Name="pjhDelphiStandardPkg:Clean">
+        <MSBuild Projects="..\Component\pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhDelphiStandardPkg:Make">
+        <MSBuild Projects="..\Component\pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="F2_pjhPackageUnits;F1_pjhPackageUnits;pjhDelphiStandardPkg"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="F2_pjhPackageUnits:Clean;F1_pjhPackageUnits:Clean;pjhDelphiStandardPkg:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="F2_pjhPackageUnits:Make;F1_pjhPackageUnits:Make;pjhDelphiStandardPkg:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,22 @@
+unit UnitRevFlowCommon;
+
+interface
+
+uses classes;
+
+procedure SetCommonRevPrevStep(ASrc, ADest: TComponent);
+procedure SetCommonNilRevPrevStep(ASrc, ADest: TComponent);
+
+implementation
+
+procedure SetCommonRevPrevStep(ASrc, ADest: TComponent);
+begin
+
+end;
+
+procedure SetCommonNilRevPrevStep(ASrc, ADest: TComponent);
+begin
+
+end;
+
+end.

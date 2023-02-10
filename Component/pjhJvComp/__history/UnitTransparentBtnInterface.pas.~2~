@@ -1,0 +1,12 @@
+unit UnitTransparentBtnInterface;
+
+interface
+
+uses
+  Classes;
+
+type
+  IpjhTransparent
+implementation
+
+end.

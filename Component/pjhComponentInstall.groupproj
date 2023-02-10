@@ -1,0 +1,144 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8B1D833B-6E52-4D75-97FE-528A1D51CD8D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pjhIOComp\pjhIOCompStdPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pjhIOComp\pjhIOCompProPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pjhIOComp\pjhIOCompPlotPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pjhTMSComp\pjhTMSCompPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pjhTMSComp\pjhTMSSmoothCompPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pjhJvComp\pjhJvCompPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pjhxIOComp\pjhxIOCompPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\vcl\pjhComponent\xIOComp\xIOComp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\Dev\Lang\Delphi\Project\HiMECS2\Utility\HiMECS_Watch2\HiMECSWatch2.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="pjhDelphiStandardPkg">
+        <MSBuild Projects="pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj"/>
+    </Target>
+    <Target Name="pjhDelphiStandardPkg:Clean">
+        <MSBuild Projects="pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhDelphiStandardPkg:Make">
+        <MSBuild Projects="pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhIOCompStdPkg">
+        <MSBuild Projects="pjhIOComp\pjhIOCompStdPkg.dproj"/>
+    </Target>
+    <Target Name="pjhIOCompStdPkg:Clean">
+        <MSBuild Projects="pjhIOComp\pjhIOCompStdPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhIOCompStdPkg:Make">
+        <MSBuild Projects="pjhIOComp\pjhIOCompStdPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhIOCompProPkg">
+        <MSBuild Projects="pjhIOComp\pjhIOCompProPkg.dproj"/>
+    </Target>
+    <Target Name="pjhIOCompProPkg:Clean">
+        <MSBuild Projects="pjhIOComp\pjhIOCompProPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhIOCompProPkg:Make">
+        <MSBuild Projects="pjhIOComp\pjhIOCompProPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhIOCompPlotPkg">
+        <MSBuild Projects="pjhIOComp\pjhIOCompPlotPkg.dproj"/>
+    </Target>
+    <Target Name="pjhIOCompPlotPkg:Clean">
+        <MSBuild Projects="pjhIOComp\pjhIOCompPlotPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhIOCompPlotPkg:Make">
+        <MSBuild Projects="pjhIOComp\pjhIOCompPlotPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhTMSCompPkg">
+        <MSBuild Projects="pjhTMSComp\pjhTMSCompPkg.dproj"/>
+    </Target>
+    <Target Name="pjhTMSCompPkg:Clean">
+        <MSBuild Projects="pjhTMSComp\pjhTMSCompPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhTMSCompPkg:Make">
+        <MSBuild Projects="pjhTMSComp\pjhTMSCompPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhTMSSmoothCompPkg">
+        <MSBuild Projects="pjhTMSComp\pjhTMSSmoothCompPkg.dproj"/>
+    </Target>
+    <Target Name="pjhTMSSmoothCompPkg:Clean">
+        <MSBuild Projects="pjhTMSComp\pjhTMSSmoothCompPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhTMSSmoothCompPkg:Make">
+        <MSBuild Projects="pjhTMSComp\pjhTMSSmoothCompPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhJvCompPkg">
+        <MSBuild Projects="pjhJvComp\pjhJvCompPkg.dproj"/>
+    </Target>
+    <Target Name="pjhJvCompPkg:Clean">
+        <MSBuild Projects="pjhJvComp\pjhJvCompPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhJvCompPkg:Make">
+        <MSBuild Projects="pjhJvComp\pjhJvCompPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pjhxIOCompPkg">
+        <MSBuild Projects="pjhxIOComp\pjhxIOCompPkg.dproj"/>
+    </Target>
+    <Target Name="pjhxIOCompPkg:Clean">
+        <MSBuild Projects="pjhxIOComp\pjhxIOCompPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pjhxIOCompPkg:Make">
+        <MSBuild Projects="pjhxIOComp\pjhxIOCompPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="xIOComp">
+        <MSBuild Projects="..\..\..\..\vcl\pjhComponent\xIOComp\xIOComp.dproj"/>
+    </Target>
+    <Target Name="xIOComp:Clean">
+        <MSBuild Projects="..\..\..\..\vcl\pjhComponent\xIOComp\xIOComp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="xIOComp:Make">
+        <MSBuild Projects="..\..\..\..\vcl\pjhComponent\xIOComp\xIOComp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="HiMECSWatch2">
+        <MSBuild Projects="..\..\..\..\Dev\Lang\Delphi\Project\HiMECS2\Utility\HiMECS_Watch2\HiMECSWatch2.dproj"/>
+    </Target>
+    <Target Name="HiMECSWatch2:Clean">
+        <MSBuild Projects="..\..\..\..\Dev\Lang\Delphi\Project\HiMECS2\Utility\HiMECS_Watch2\HiMECSWatch2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HiMECSWatch2:Make">
+        <MSBuild Projects="..\..\..\..\Dev\Lang\Delphi\Project\HiMECS2\Utility\HiMECS_Watch2\HiMECSWatch2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="pjhDelphiStandardPkg;pjhIOCompStdPkg;pjhIOCompProPkg;pjhIOCompPlotPkg;pjhTMSCompPkg;pjhTMSSmoothCompPkg;pjhJvCompPkg;pjhxIOCompPkg;xIOComp;HiMECSWatch2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="pjhDelphiStandardPkg:Clean;pjhIOCompStdPkg:Clean;pjhIOCompProPkg:Clean;pjhIOCompPlotPkg:Clean;pjhTMSCompPkg:Clean;pjhTMSSmoothCompPkg:Clean;pjhJvCompPkg:Clean;pjhxIOCompPkg:Clean;xIOComp:Clean;HiMECSWatch2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="pjhDelphiStandardPkg:Make;pjhIOCompStdPkg:Make;pjhIOCompProPkg:Make;pjhIOCompPlotPkg:Make;pjhTMSCompPkg:Make;pjhTMSSmoothCompPkg:Make;pjhJvCompPkg:Make;pjhxIOCompPkg:Make;xIOComp:Make;HiMECSWatch2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

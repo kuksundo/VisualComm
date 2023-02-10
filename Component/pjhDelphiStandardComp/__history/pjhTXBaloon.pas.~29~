@@ -1,0 +1,175 @@
+unit pjhTXBaloon;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Extctrls,
+  Vcl.Graphics, Vcl.AppEvnts, pjhclasses, pjhDesignCompIntf,
+  pjhDelphiStandardCompConst, XBaloon;
+
+type
+  TpjhTXBaloon = class(TXBaloon, IpjhDesignCompInterface)
+  private
+    FActiveColor: TColor;
+    FInActiveColor: TColor;
+    FText: string;
+    FX, FY: integer;
+    FAppEvent: TApplicationEvents;
+
+    procedure GetCurrentMousePos;
+  protected
+    //For IpjhDesignCompInterface
+    FpjhTagInfo: TpjhTagInfo;
+    FpjhValue: string;
+    FpjhBplFileName: string;
+
+    function GetpjhValue: string;
+    procedure SetpjhValue(AValue: string);
+    function GetpjhTagInfo: TpjhTagInfo;
+    procedure SetpjhTagInfo(AValue: TpjhTagInfo);
+    function GetBplFileName: string;
+    procedure SetBplFileName(AValue: string);
+    //For IpjhDesignCompInterface
+
+    procedure SetActiveColor      (const Value: TColor);
+    procedure SetInactiveColor    (const Value: TColor);
+    procedure SetText(const Value: string);
+//    procedure GetText(const Value: string);
+    procedure AppEventsShortCut(var Msg: TWMKey; var Handled: Boolean);
+    procedure SetX(const value: integer);
+  public
+    constructor Create(AOwner: TComponent);  override;
+    destructor  Destroy;                     override;
+  published
+    //For IpjhDesignCompInterface
+    property pjhTagInfo: TpjhTagInfo read GetpjhTagInfo write SetpjhTagInfo;
+    property pjhValue: string read GetpjhValue write SetpjhValue;
+    property pjhBplFileName: string read GetBplFileName write SetBplFileName;
+    //For IpjhDesignCompInterface
+
+    property ActiveColor: TColor read FActiveColor write SetActiveColor default clLime;
+    property InActiveColor: TColor read FInActiveColor write SetInActiveColor default clSilver;
+    property Text: string read FText write SetText;
+
+    property X: integer read FX write SetX;
+    property Y: integer read FY write FY;
+  end;
+
+implementation
+
+{ TpjhTXBaloon }
+
+procedure TpjhTXBaloon.AppEventsShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  if (Msg.CharCode = VK_F4) then
+//  if ((Msg.CharCode = Ord('C')) or (Msg.CharCode = Ord('c')))
+//    and ((HiWord(Msg.KeyData) and KF_ALTDOWN) <> 0) then //ALT + 'C'
+  begin
+    Handled := True;
+
+    GetCurrentMousePos();
+  end;
+end;
+
+constructor TpjhTXBaloon.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+
+  FpjhTagInfo := TpjhTagInfo.Create;
+  FpjhBplFileName := pjhDelphiStandardBplFileName;
+
+  FAppEvent := TApplicationEvents.Create(self);
+  FAppEvent.OnShortCut := AppEventsShortCut;
+
+  FActiveColor := clLime;
+  FInActiveColor := clSilver;
+
+  FX := -1;
+  FY := -1;
+end;
+
+destructor TpjhTXBaloon.Destroy;
+begin
+  FAppEvent.Free;
+  FpjhTagInfo.Free;
+
+  inherited;
+end;
+
+function TpjhTXBaloon.GetBplFileName: string;
+begin
+  Result := FpjhBplFileName;
+end;
+
+procedure TpjhTXBaloon.GetCurrentMousePos;
+var
+  pt: TPoint;
+begin
+  GetCursorPos(pt);
+
+  X := pt.x;
+  FY := pt.y;
+end;
+
+function TpjhTXBaloon.GetpjhTagInfo: TpjhTagInfo;
+begin
+  Result := FpjhTagInfo;
+end;
+
+function TpjhTXBaloon.GetpjhValue: string;
+begin
+  Result := FpjhValue;
+end;
+
+procedure TpjhTXBaloon.SetActiveColor(const Value: TColor);
+begin
+  if FActiveColor <> Value then
+    FActiveColor := Value;
+end;
+
+procedure TpjhTXBaloon.SetBplFileName(AValue: string);
+begin
+  FpjhBplFileName := AValue;
+end;
+
+procedure TpjhTXBaloon.SetInactiveColor(const Value: TColor);
+begin
+  if FInActiveColor <> Value then
+    FInActiveColor := Value;
+end;
+
+procedure TpjhTXBaloon.SetpjhTagInfo(AValue: TpjhTagInfo);
+begin
+  FpjhTagInfo.Assign(AValue);
+end;
+
+procedure TpjhTXBaloon.SetpjhValue(AValue: string);
+var
+  LActive: Boolean;
+begin
+  if FpjhValue <> AValue then
+  begin
+    FpjhValue := AValue;
+    LActive := StrToBool(AValue);
+    if LActive then
+    begin
+      Color := ActiveColor;
+      Show(FText, FX, FY);
+    end
+    else
+      Hide;
+  end;
+end;
+
+procedure TpjhTXBaloon.SetText(const Value: string);
+begin
+  if FText <> Value then
+    FText := Value
+end;
+
+procedure TpjhTXBaloon.SetX(const value: integer);
+begin
+  FX := value;
+end;
+
+end.

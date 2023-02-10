@@ -1,0 +1,58 @@
+package pjhDelphiStandardPkg;
+
+{$R *.res}
+{$R 'pjhDelphiStandard.res'}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  F2_pjhPackageUnits,
+  vclimg,
+  Jcl,
+  JvCore,
+  ggbutton,
+  JvSystem,
+  JvCustom,
+  A2_pjhCompSharedPkg;
+
+contains
+  pjhDelphiStandardCompList in 'pjhDelphiStandardCompList.pas',
+  pjhDelphiStandardCompConst in 'pjhDelphiStandardCompConst.pas',
+  pjhTPanel in 'pjhTPanel.pas',
+  pjhTImage in 'pjhTImage.pas',
+  pjhTBevel in 'pjhTBevel.pas',
+  pjhTGridPanel in 'pjhTGridPanel.pas',
+  pjhTLedPanel in 'pjhTLedPanel.pas',
+  pjhTShadowButton in 'pjhTShadowButton.pas',
+  UnitBalloonConst in '..\..\..\HiMECS\Application\Utility\Watch2\UnitBalloonConst.pas',
+  pjhDateTimeLabel in 'pjhDateTimeLabel.pas',
+  DateTimeLabelUnit in '..\..\..\..\..\Dev\Lang\Delphi\Component\Vcl\dtlbl\DateTimeLabelUnit.pas',
+  pjhLabel4HiMECS in 'pjhLabel4HiMECS.pas',
+  JHP.Util.Bit in '..\..\..\..\..\Dev\Lang\Delphi\Common\JHP.Util.Bit.pas';
+
+end.

@@ -1,0 +1,10 @@
+unit pjhCyCompConst;
+
+interface
+
+const
+  pjhCindyCompBplFileName = 'pjhCindyCompPkg.bpl';
+
+implementation
+
+end.

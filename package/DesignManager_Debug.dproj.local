@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.198,=C:\Users\Administrator\Documents\RAD Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.061,=E:\pjh\project\util\VisualComm\package\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.585,=E:\pjh\project\util\VisualComm\package\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.207,=E:\pjh\project\util\HiMECS\Application\Utility\Watch2\common\Watch2Interface.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.272,=E:\pjh\project\util\VisualComm\frmDesignManagerDockUnit.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.876,=E:\pjh\project\util\HiMECS\Application\Utility\Watch2\WatchConst2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.937,=E:\pjh\project\util\HiMECS\Application\Source\Common\HiMECSFormCollect.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.188,=E:\pjh\project\util\HiMECS\Application\Source\Common\HiMECSComponentCollect.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.863,=c:\program files (x86)\embarcadero\rad studio\12.0\SOURCE\PROPERTY EDITORS\PicEdit.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.399,c:\program files (x86)\embarcadero\rad studio\12.0\SOURCE\PROPERTY EDITORS\PicEdit.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.816,=E:\pjh\project\util\HiMECS\Application\Utility\Watch2\pjhPanel.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.278,E:\pjh\project\util\VisualComm\package\DesignManager_Debug.dproj=C:\Users\Administrator\Documents\RAD Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.245,E:\pjh\project\util\HiMECS\Application\Utility\ModbusComm_kumo\common\CommonUtil.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.748,=E:\pjh\project\util\HiMECS\Application\Utility\ModbusComm_kumo\common\CommonUtil.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

@@ -1,0 +1,12 @@
+unit pjhTJvTransparentButtonConst;
+
+interface
+
+uses Messages;
+
+Const
+  WM_BUTTON_CLICK_NOTIFY = WM_USER + 200;
+
+implementation
+
+end.

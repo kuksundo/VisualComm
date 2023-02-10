@@ -1,0 +1,51 @@
+package pjhxIOCompPkg;
+
+{$R *.res}
+{$R *.dres}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  A2_pjhCompSharedPkg,
+  xIOComp;
+
+contains
+  pjhxIOCompList in 'pjhxIOCompList.pas',
+  pjhxIOCompConst in 'pjhxIOCompConst.pas',
+  pjhiTank_pjh in 'pjhiTank_pjh.pas',
+  pjhiValve_pjh in 'pjhiValve_pjh.pas',
+  pjhiMotor_pjh in 'pjhiMotor_pjh.pas',
+  pjhiPipe_pjh in 'pjhiPipe_pjh.pas',
+  pjhiPipeJoint_pjh in 'pjhiPipeJoint_pjh.pas',
+  pjhiLedArrow_pjh in 'pjhiLedArrow_pjh.pas',
+  pjhjvGIFAnimator_pjh in 'pjhjvGIFAnimator_pjh.pas',
+  pjhiPanel_jvGIFAni_pjh in 'pjhiPanel_jvGIFAni_pjh.pas',
+  UnitGPFunction in '..\..\..\..\common\UnitGPFunction.pas',
+  pjhiValve2_pjh in 'pjhiValve2_pjh.pas',
+  pjhPipeFlowInterface in 'pjhPipeFlowInterface.pas';
+
+end.

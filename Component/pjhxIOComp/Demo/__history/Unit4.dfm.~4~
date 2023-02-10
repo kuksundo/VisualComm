@@ -1,0 +1,53 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = 'Form4'
+  ClientHeight = 275
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 216
+    Top = 48
+    Width = 121
+    Height = 17
+    Caption = 'Panel1'
+    Color = clBlue
+    ParentBackground = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 200
+    Top = 71
+    Width = 14
+    Height = 121
+    Caption = 'Panel1'
+    Color = clBlue
+    ParentBackground = False
+    TabOrder = 1
+  end
+  object pjhiValve_pjh1: TpjhiValve_pjh
+    Left = 216
+    Top = 72
+    Width = 121
+    Height = 129
+    Vesrion = '0.0.1'
+    ClickToOpen = False
+    Opened = False
+    OpenedColor = clLime
+    ClosedColor = clRed
+    ChangeBodyColor = True
+    Orientation = ioVertical
+    pjhTagInfo.ParamIndex = 0
+    pjhBplFileName = 'pjhxIOCompPkg.bpl'
+    ValveWayKind = vwk3To2Way
+    ValveFlow = vf2_3
+  end
+end

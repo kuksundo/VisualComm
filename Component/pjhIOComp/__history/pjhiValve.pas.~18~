@@ -1,0 +1,222 @@
+unit pjhiValve;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Menus,
+  Vcl.Graphics, iGPFunctions, iValve,
+  pjhclasses, pjhDesignCompIntf, pjhIOCompProConst;
+
+type
+  TpjhiValve = class(TiValve, IpjhDesignCompInterface)
+  protected
+    //For IpjhDesignCompInterface
+    FpjhTagInfo: TpjhTagInfo;
+    FpjhValue: string;
+    FpjhBplFileName: string;
+
+    function GetpjhValue: string;
+    procedure SetpjhValue(AValue: string);
+    function GetpjhTagInfo: TpjhTagInfo;
+    procedure SetpjhTagInfo(AValue: TpjhTagInfo);
+    function GetBplFileName: string;
+    procedure SetBplFileName(AValue: string);
+    //For IpjhDesignCompInterface
+
+    procedure SetValveDirection(const Value: TValveDirection);
+    procedure DrawVertical  (Canvas: TCanvas);
+  public
+    constructor Create(AOwner: TComponent);  override;
+    destructor  Destroy;                     override;
+  published
+    //For IpjhDesignCompInterface
+    property pjhTagInfo: TpjhTagInfo read GetpjhTagInfo write SetpjhTagInfo;
+    property pjhValue: string read GetpjhValue write SetpjhValue;
+    property pjhBplFileName: string read GetBplFileName write SetBplFileName;
+    //For IpjhDesignCompInterface
+
+    property ValveDirection : TValveDirection read FValveDirection write SetValveDirection default vdLeft;
+  end;
+
+implementation
+
+{ TpjhiValve }
+
+constructor TpjhiValve.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  FpjhTagInfo := TpjhTagInfo.Create;
+  FpjhBplFileName := pjhIOCompProBplFileName;
+end;
+
+destructor TpjhiValve.Destroy;
+begin
+  FpjhTagInfo.Free;
+  inherited;
+end;
+
+
+procedure TpjhiValve.DrawVertical(Canvas: TCanvas);
+var
+  DrawRect   : TRect;
+  BodyMidX   : Integer;
+  BodyMidY   : Integer;
+  BodyTop    : Integer;
+
+  StemLeft   : Integer;
+  StemRight  : Integer;
+  StemTop    : Integer;
+  StemBottom : Integer;
+
+  KnobRadius : Integer;
+  KnobRect   : TRect;
+
+  KnobColor  : TColor;
+begin
+  DrawRect := Rect(0, 0, Width - 1, Height -1);
+
+  with Canvas, DrawRect do
+  begin
+    DrawBackGround(Canvas, BackGroundColor);
+
+    if FValveDirection = vdLeft then
+      BodyMidX   := (Self.Width div 4)*3
+    else
+      BodyMidX   := (Self.Width div 4);
+
+    BodyMidY   := Self.Height div 2;
+    BodyTop    := Self.Width div 2;
+
+    KnobRadius := Self.Height div 4;
+
+    if FValveDirection = vdLeft then
+    begin
+      KnobRect   := Rect(Left, BodyMidY - KnobRadius, 2*KnobRadius, BodyMidY + KnobRadius);
+      StemLeft   := KnobRadius;
+      StemRight  := BodyMidX;
+      StemTop    := BodyMidY - 2;
+      StemBottom := BodyMidY + 2;
+    end
+    else
+    begin
+      KnobRect   := Rect(Right-(2*KnobRadius), BodyMidY - KnobRadius, Right, BodyMidY + KnobRadius);
+      StemLeft   := BodyMidX;
+      StemRight  := Right - KnobRadius;
+      StemTop    := BodyMidY - 2;
+      StemBottom := BodyMidY + 2;
+    end;
+
+    if Opened then KnobColor := OpenedColor else KnobColor := ClosedColor;
+
+    DrawGradient(Canvas, BackGroundColor, KnobColor, KnobRect, False);
+
+    Brush.Style := bsSolid;
+    Brush.Color := BackGroundColor;
+    Pen.Style   := psClear;
+
+    if FValveDirection = vdLeft then
+      KnobRect.Left := KnobRadius
+    else
+      KnobRect.Left := Right - KnobRadius;
+
+    FillRect(KnobRect);
+
+    if ChangeBodyColor then Brush.Color := KnobColor else Brush.Color := clBtnFace;
+
+    if FValveDirection = vdLeft then
+    begin
+      Polygon([Point(BodyMidX,  BodyMidY), Point(BodyTop,  Bottom), Point(Right, Bottom)]);
+      Polygon([Point(BodyMidX,  BodyMidY), Point(BodyTop,  Top   ), Point(Right, Top   )]);
+    end
+    else
+    begin
+      Polygon([Point(BodyMidX,  BodyMidY), Point(BodyTop,  Bottom), Point(Left, Bottom)]);
+      Polygon([Point(BodyMidX,  BodyMidY), Point(BodyTop,  Top   ), Point(Left, Top   )]);
+    end;
+
+    Rectangle(StemLeft, StemTop, StemRight, StemBottom);
+
+    Pen.Style := psSolid;
+    Pen.Color := clWhite;
+    Line(Canvas, BodyMidX, BodyMidY, BodyTop,  Bottom);
+    Line(Canvas, BodyMidX, BodyMidY, BodyTop,  Top);
+
+    if FValveDirection = vdLeft then
+      Line(Canvas, BodyTop,  Top,      Right, Top)
+    else
+      Line(Canvas, BodyTop,  Top,      Left, Top);
+
+    Line(Canvas, StemLeft, StemTop, StemRight, StemTop);
+
+    Pen.Color := clGray;
+
+    if FValveDirection = vdLeft then
+    begin
+      Line(Canvas, BodyMidX, BodyMidY, Right, Bottom);
+      Line(Canvas, BodyMidX, BodyMidY, Right, Top);
+    end
+    else
+    begin
+      Line(Canvas, BodyMidX, BodyMidY, Left, Bottom);
+      Line(Canvas, BodyMidX, BodyMidY, Left, Top);
+    end;
+
+    Pen.Color := clBlack;
+
+    if FValveDirection = vdLeft then
+    begin
+      Line(Canvas, BodyTop, Bottom, Right, Bottom);
+    end
+    else
+    begin
+      Line(Canvas, BodyTop, Bottom, Left, Bottom);
+    end;
+
+    Line(Canvas, StemLeft, StemBottom, StemRight, StemBottom);
+  end;
+end;
+
+function TpjhiValve.GetBplFileName: string;
+begin
+  Result := FpjhBplFileName;
+end;
+
+function TpjhiValve.GetpjhTagInfo: TpjhTagInfo;
+begin
+  Result := FpjhTagInfo;
+end;
+
+function TpjhiValve.GetpjhValue: string;
+begin
+  Result := FpjhValue;
+end;
+
+procedure TpjhiValve.SetBplFileName(AValue: string);
+begin
+  FpjhBplFileName := AValue;
+end;
+
+procedure TpjhiValve.SetpjhTagInfo(AValue: TpjhTagInfo);
+begin
+  FpjhTagInfo.Assign(AValue);
+end;
+
+procedure TpjhiValve.SetpjhValue(AValue: string);
+begin
+  if FpjhValue <> AValue then
+  begin
+    FpjhValue := AValue;
+    Opened := StrToBool(AValue);
+  end;
+end;
+
+procedure TpjhiValve.SetValveDirection(const Value: TValveDirection);
+begin
+  if FValveDirection <> Value then
+  begin
+    FValveDirection := Value;
+    InvalidateChange;
+  end;
+end;
+
+end.

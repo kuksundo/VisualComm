@@ -1,0 +1,56 @@
+package pjhDelphiStandardPkg;
+
+{$R *.res}
+{$R 'pjhDelphiStandard.res'}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  ggbutton,
+  A2_pjhCompSharedPkg;
+
+contains
+  pjhDelphiStandardCompList in 'pjhDelphiStandardCompList.pas',
+  pjhDelphiStandardCompConst in 'pjhDelphiStandardCompConst.pas',
+  pjhTPanel in 'pjhTPanel.pas',
+  pjhTImage in 'pjhTImage.pas',
+  pjhTBevel in 'pjhTBevel.pas',
+  pjhTGridPanel in 'pjhTGridPanel.pas',
+  pjhTLedPanel in 'pjhTLedPanel.pas',
+  pjhTShadowButton in 'pjhTShadowButton.pas',
+  mormot.core.json in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.json.pas',
+  mormot.core.data in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.data.pas',
+  mormot.core.datetime in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.datetime.pas',
+  mormot.core.buffers in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.buffers.pas',
+  mormot.core.rtti in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.rtti.pas',
+  mormot.core.text in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.text.pas',
+  mormot.core.unicode in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.unicode.pas',
+  mormot.core.os in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.os.pas',
+  mormot.core.base in '..\..\..\..\..\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.base.pas';
+
+end.

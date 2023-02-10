@@ -1,0 +1,258 @@
+unit pjhTJvTransparentButton;
+
+interface
+
+uses SysUtils, Classes, Windows, Messages, Graphics, Controls, Forms,
+  pjhclasses, pjhDesignCompIntf, pjhJvCompConst, pjhTJvTransparentButtonConst,
+  JvTransparentButton;
+
+type
+  //pjhValue에 PageIndex를전달하여 페이지 전환에 사용함(OnClick 참조)
+  TpjhTJvTransparentButton = class(TJvTransparentButton, IpjhDesignCompInterface)
+  protected
+    FOwner: TWinControl;
+
+    //For IpjhDesignCompInterface
+    FpjhTagInfo: TpjhTagInfo;
+    FpjhValue: string;
+    FpjhBplFileName: string;
+    FVersion: integer;
+
+//    FpjhDefaultText: string;
+
+    function GetpjhValue: string;
+    procedure SetpjhValue(AValue: string); virtual;
+    function GetpjhTagInfo: TpjhTagInfo;
+    procedure SetpjhTagInfo(AValue: TpjhTagInfo);
+    function GetBplFileName: string;
+    procedure SetBplFileName(AValue: string);
+    //For IpjhDesignCompInterface
+  public
+    constructor Create(AOwner: TComponent);  override;
+    destructor  Destroy;override;
+    procedure Click;override;
+  published
+    //For IpjhDesignCompInterface
+    property pjhTagInfo: TpjhTagInfo read GetpjhTagInfo write SetpjhTagInfo;
+    property pjhValue: string read GetpjhValue write SetpjhValue;
+    property pjhBplFileName: string read GetBplFileName write SetBplFileName;
+    //For IpjhDesignCompInterface
+//    property pjhDefaultText: string read FpjhDefaultText write FpjhDefaultText;
+  end;
+
+  //pjhValue에 PageIndex 또는 문자열값을 전달하여 페이지 전환 또는 문자열 표시에 사용함(OnClick 참조)
+  TpjhTJvTransparentButton2 = class(TpjhTJvTransparentButton)
+  protected
+    FpjhBtnActionKind: TJvTransBtnActionKind;
+    FpjhSendTarget: TComponent;
+    FpjhSendTargetList,
+    FpjhSendValue: string;
+
+    procedure SetpjhValue(AValue: string); override;
+
+    function GetpjhBtnActionKind: TJvTransBtnActionKind;
+    procedure SetpjhBtnActionKind(AValue: TJvTransBtnActionKind);
+    function GetpjhSendTarget: TComponent;
+    procedure SetpjhSendTarget(AValue: TComponent);
+    function GetpjhSendTargetList: string;
+    procedure SetpjhSendTargetList(AValue: string);
+    function GetpjhSendValue: string;
+    procedure SetpjhSendValue(AValue: string);
+  public
+    constructor Create(AOwner: TComponent);  override;
+    procedure Click;override;
+  published
+    property pjhBtnActionKind: TJvTransBtnActionKind read GetpjhBtnActionKind write SetpjhBtnActionKind;
+    property pjhSendTarget: TComponent read GetpjhSendTarget write SetpjhSendTarget;
+    property pjhSendTargetList: string read GetpjhSendTargetList write SetpjhSendTargetList;
+    property pjhSendValue: string read GetpjhSendValue write SetpjhSendValue;
+    property pjhValue: string read GetpjhValue write SetpjhValue;
+  end;
+
+implementation
+
+uses UnitCopyData;
+
+{ TpjhTJvTransparentButton }
+
+procedure TpjhTJvTransparentButton.Click;
+begin
+  inherited;
+
+  if FVersion = 1 then
+    if Assigned(FOwner) then
+      SendMessage(Application.MainForm.Handle, WM_BUTTON_CLICK_NOTIFY, StrToIntDef(pjhValue, 5), ord(tbakChangePage));
+end;
+
+constructor TpjhTJvTransparentButton.Create(AOwner: TComponent);
+begin
+  inherited;
+
+  if AOwner.InheritsFrom(TWinControl) then
+    FOwner := AOwner as TWinControl
+  else
+    FOwner := nil;
+
+  FpjhTagInfo := TpjhTagInfo.Create;
+  FpjhBplFileName := pjhJvCompBplFileName;
+
+  FVersion := 1;
+end;
+
+destructor TpjhTJvTransparentButton.Destroy;
+begin
+  FpjhTagInfo.Free;
+
+  inherited;
+end;
+
+function TpjhTJvTransparentButton.GetBplFileName: string;
+begin
+  Result := FpjhBplFileName;
+end;
+
+procedure TpjhTJvTransparentButton2.Click;
+var
+  LRecToPass: TRecToPass;
+  LNameList: string;
+begin
+  inherited;
+
+  if Assigned(FOwner) then
+  begin
+    if FpjhBtnActionKind = tbakSendText then
+    begin
+      LNameList := '';
+      StrPCopy(LRecToPass.StrMsg, FpjhSendValue);
+
+      if Assigned(pjhSendTarget) then
+        LNameList := pjhSendTarget.Name;
+
+      if FpjhSendTargetList <> '' then
+      begin
+        if LNameList <> '' then
+          LNameList := LNameList + ';';
+
+        LNameList := LNameList + FpjhSendTargetList;
+      end;
+
+      StrPCopy(LRecToPass.StrSrcFormName, LNameList);
+      LRecToPass.iHandle := Ord(pjhBtnActionKind);
+
+      SendCopyData3(Application.MainForm.Handle, LRecToPass, 2);
+    end
+    else
+    if FpjhBtnActionKind = tbakChangePage then
+    begin
+      if not (csDesigning in ComponentState) then
+        SendMessage(Application.MainForm.Handle, WM_BUTTON_CLICK_NOTIFY, StrToIntDef(pjhValue, 5), ord(tbakChangePage));
+    end
+    else
+    if FpjhBtnActionKind = tbakLoadDFMFromFile then
+    begin
+      if not (csDesigning in ComponentState) then
+        SendMessage(Application.MainForm.Handle, WM_BUTTON_CLICK_NOTIFY, StrToIntDef(pjhValue, 5), ord(tbakLoadDFMFromFile));
+    end;
+  end;
+end;
+
+constructor TpjhTJvTransparentButton2.Create(AOwner: TComponent);
+begin
+  inherited;
+
+  FVersion := 2;
+end;
+
+function TpjhTJvTransparentButton2.GetpjhBtnActionKind: TJvTransBtnActionKind;
+begin
+  Result := FpjhBtnActionKind;
+end;
+
+function TpjhTJvTransparentButton2.GetpjhSendTarget: TComponent;
+begin
+  Result := FpjhSendTarget;
+end;
+
+function TpjhTJvTransparentButton2.GetpjhSendTargetList: string;
+begin
+  Result := FpjhSendTargetList;
+end;
+
+function TpjhTJvTransparentButton2.GetpjhSendValue: string;
+begin
+  Result := FpjhSendValue;
+end;
+
+//function TpjhTJvTransparentButton2.GetpjhValue2: string;
+//begin
+//  Result := FpjhValue2;
+//end;
+
+function TpjhTJvTransparentButton.GetpjhTagInfo: TpjhTagInfo;
+begin
+  Result := FpjhTagInfo;
+end;
+
+function TpjhTJvTransparentButton.GetpjhValue: string;
+begin
+  Result := FpjhValue;
+end;
+
+procedure TpjhTJvTransparentButton.SetBplFileName(AValue: string);
+begin
+  FpjhBplFileName := AValue;
+end;
+
+procedure TpjhTJvTransparentButton2.SetpjhBtnActionKind(
+  AValue: TJvTransBtnActionKind);
+begin
+  FpjhBtnActionKind := AValue;
+end;
+
+procedure TpjhTJvTransparentButton2.SetpjhSendTarget(AValue: TComponent);
+begin
+  FpjhSendTarget := AValue;
+end;
+
+procedure TpjhTJvTransparentButton2.SetpjhSendTargetList(AValue: string);
+begin
+  FpjhSendTargetList := AValue;
+end;
+
+procedure TpjhTJvTransparentButton2.SetpjhSendValue(AValue: string);
+begin
+  FpjhSendValue := AValue;
+end;
+
+procedure TpjhTJvTransparentButton2.SetpjhValue(AValue: string);
+var
+  i: integer;
+begin
+  if FpjhValue <> AValue then
+  begin
+    i := StrToIntDef(AValue,-999);
+
+    if i = -999 then
+      exit;
+
+    FpjhValue := AValue;
+
+    if i > 0 then
+      Click;
+  end;
+end;
+
+procedure TpjhTJvTransparentButton.SetpjhTagInfo(AValue: TpjhTagInfo);
+begin
+  FpjhTagInfo.Assign(AValue);
+end;
+
+procedure TpjhTJvTransparentButton.SetpjhValue(AValue: string);
+begin
+  if FpjhValue <> AValue then
+  begin
+    FpjhValue := AValue;
+  end;
+end;
+
+end.

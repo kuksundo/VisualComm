@@ -1,0 +1,16 @@
+unit pjhTJvTransparentButtonConst;
+
+interface
+
+uses Messages;
+
+Type
+  TJvTransBtnActionKind = (tbakChangePage, tbakSendText);
+
+Const
+  WM_BUTTON_CLICK_NOTIFY = WM_USER + 200;
+  WM_BUTTON_CLICK_NOTIFY_COPY = WM_USER + 201;
+
+implementation
+
+end.

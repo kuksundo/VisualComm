@@ -1,0 +1,173 @@
+unit pjhiValve;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Menus,
+  Vcl.Graphics,
+  iValve, iGPFunctions,
+  pjhclasses, pjhDesignCompIntf, pjhIOCompProConst;
+
+type
+  TpjhiValve = class(TiValve, IpjhDesignCompInterface)
+  protected
+    //For IpjhDesignCompInterface
+    FpjhTagInfo: TpjhTagInfo;
+    FpjhValue: string;
+    FpjhBplFileName: string;
+
+    function GetpjhValue: string;
+    procedure SetpjhValue(AValue: string);
+    function GetpjhTagInfo: TpjhTagInfo;
+    procedure SetpjhTagInfo(AValue: TpjhTagInfo);
+    function GetBplFileName: string;
+    procedure SetBplFileName(AValue: string);
+    //For IpjhDesignCompInterface
+
+    procedure iPaintTo      (Canvas: TCanvas); override;
+    procedure DrawHValve(Canvas: TCanvas);
+    procedure DrawVValve  (Canvas: TCanvas);
+  public
+    constructor Create(AOwner: TComponent);  override;
+    destructor  Destroy;                     override;
+  published
+    //For IpjhDesignCompInterface
+    property pjhTagInfo: TpjhTagInfo read GetpjhTagInfo write SetpjhTagInfo;
+    property pjhValue: string read GetpjhValue write SetpjhValue;
+    property pjhBplFileName: string read GetBplFileName write SetBplFileName;
+    //For IpjhDesignCompInterface
+  end;
+
+implementation
+
+{ TpjhiValve }
+
+constructor TpjhiValve.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  FpjhTagInfo := TpjhTagInfo.Create;
+  FpjhBplFileName := pjhIOCompProBplFileName;
+end;
+
+destructor TpjhiValve.Destroy;
+begin
+  FpjhTagInfo.Free;
+  inherited;
+end;
+
+procedure TpjhiValve.DrawHValve(Canvas: TCanvas);
+var
+  DrawRect   : TRect;
+  BodyMidX   : Integer;
+  BodyMidY   : Integer;
+  BodyTop    : Integer;
+
+  StemLeft   : Integer;
+  StemRight  : Integer;
+  StemTop    : Integer;
+  StemBottom : Integer;
+
+  KnobRadius : Integer;
+  KnobRect   : TRect;
+
+  KnobColor  : TColor;
+begin
+  DrawRect := Rect(0, 0, Width - 1, Height -1);
+
+  with Canvas, DrawRect do
+  begin
+    DrawBackGround(Canvas, BackGroundColor);
+
+    BodyMidX   := Width div 2;
+    BodyMidY   := (Height div 4)*3;
+    BodyTop    := Height div 2;
+
+    KnobRadius := Width div 4;
+    KnobRect   := Rect(BodyMidX - KnobRadius, Top, BodyMidX + KnobRadius, 2*KnobRadius);
+
+    StemLeft   := BodyMidX - 2;
+    StemRight  := BodyMidX + 2;
+    StemTop    := KnobRadius;
+    StemBottom := BodyMidY;
+
+    if Opened then KnobColor := OpenedColor else KnobColor := ClosedColor;
+
+    DrawGradient(Canvas, BackGroundColor, KnobColor, KnobRect, False);
+
+    Brush.Style := bsSolid;
+    Brush.Color := BackGroundColor;
+    Pen.Style   := psClear;
+
+    KnobRect.Top := KnobRadius;
+    FillRect(KnobRect);
+
+    if ChangeBodyColor then Brush.Color := KnobColor else Brush.Color := clBtnFace;
+
+    Polygon([Point(Left,  BodyTop), Point(Left,  Bottom), Point(BodyMidX, BodyMidY)]); //Left Body
+    Polygon([Point(Right, BodyTop), Point(Right, Bottom), Point(BodyMidX, BodyMidY)]); //Right Body
+
+    Rectangle(StemLeft, StemTop, StemRight, StemBottom);
+
+    Pen.Style := psSolid;
+    Pen.Color := clWhite;
+    Line(Canvas, BodyMidX, BodyMidY, Right, BodyTop);
+    Line(Canvas, Left, BodyTop, Left, Bottom);
+    Line(Canvas, Left, BodyTop, BodyMidX, BodyMidY);
+    Line(Canvas, StemLeft, StemTop, StemLeft, StemBottom);
+
+    Pen.Color := clGray;
+    Line(Canvas, Left, Bottom, BodyMidX, BodyMidY);
+    Line(Canvas, BodyMidX, BodyMidY, Right, Bottom);
+
+    Pen.Color := clBlack;
+    Line(Canvas, Right, Bottom, Right, BodyTop);
+    Line(Canvas, StemRight, StemTop, StemRight, StemBottom);
+  end;
+end;
+
+procedure TpjhiValve.DrawVValve(Canvas: TCanvas);
+begin
+
+end;
+
+function TpjhiValve.GetBplFileName: string;
+begin
+  Result := FpjhBplFileName;
+end;
+
+function TpjhiValve.GetpjhTagInfo: TpjhTagInfo;
+begin
+  Result := FpjhTagInfo;
+end;
+
+function TpjhiValve.GetpjhValue: string;
+begin
+  Result := FpjhValue;
+end;
+
+procedure TpjhiValve.iPaintTo(Canvas: TCanvas);
+begin
+  inherited;
+
+end;
+
+procedure TpjhiValve.SetBplFileName(AValue: string);
+begin
+  FpjhBplFileName := AValue;
+end;
+
+procedure TpjhiValve.SetpjhTagInfo(AValue: TpjhTagInfo);
+begin
+  FpjhTagInfo.Assign(AValue);
+end;
+
+procedure TpjhiValve.SetpjhValue(AValue: string);
+begin
+  if FpjhValue <> AValue then
+  begin
+    FpjhValue := AValue;
+    Opened := StrToBool(AValue);
+  end;
+end;
+
+end.

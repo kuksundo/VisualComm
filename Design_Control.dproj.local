@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.179,=ExtLib_DXE5.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.328,C:\pjh\project\util\VisualComm\Design_Control.dproj=C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.787,E:\pjh\project\util\VisualComm\Design_Control_XE5.dproj=E:\pjh\project\util\VisualComm\Design_Control.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.029,E:\pjh\project\util\VisualComm\Design_Control.dproj=E:\pjh\project\util\VisualComm\Design_Control_XE5.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

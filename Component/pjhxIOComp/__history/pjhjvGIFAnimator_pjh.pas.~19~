@@ -1,0 +1,138 @@
+unit pjhjvGIFAnimator_pjh;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Menus,
+  JvGIFAnimator_pjh, pjhclasses, pjhDesignCompIntf, pjhPipeFlowInterface, pjhxIOCompConst;
+
+type
+  TpjhjvGIFAnimator_pjh = class(TJvGIFAnimator_pjh, IpjhDesignCompInterface, IpjhPipeFlowInterface)
+  protected
+    //For IpjhDesignCompInterface
+    FpjhTagInfo: TpjhTagInfo;
+    FpjhValue: string;
+    FpjhBplFileName: string;
+
+    function GetpjhValue: string;
+    procedure SetpjhValue(AValue: string);
+    function GetpjhTagInfo: TpjhTagInfo;
+    procedure SetpjhTagInfo(AValue: TpjhTagInfo);
+    function GetBplFileName: string;
+    procedure SetBplFileName(AValue: string);
+    //For IpjhDesignCompInterface
+  public
+    constructor Create(AOwner: TComponent);  override;
+    destructor  Destroy;                     override;
+
+    //For IpjhPipeFlowInterface ====>
+    function SetNextStepAuto(ADestComponent: TComponent): Boolean;
+    function DeleteNextStep(AWillDeleteComponent: TComponent): Boolean;
+    function ClearXStep: Boolean;
+    //For IpjhPipeFlowInterface <====
+  published
+    //For IpjhDesignCompInterface
+    property pjhTagInfo: TpjhTagInfo read GetpjhTagInfo write SetpjhTagInfo;
+    property pjhValue: string read GetpjhValue write SetpjhValue;
+    property pjhBplFileName: string read GetBplFileName write SetBplFileName;
+    //For IpjhDesignCompInterface
+  end;
+
+implementation
+
+uses UnitJHCustomComponent;
+
+{ TpjhiLedArrow }
+
+function TpjhjvGIFAnimator_pjh.ClearXStep: Boolean;
+begin
+  Result := False;
+
+  if Assigned(PrevStep) then
+  begin
+    PrevStep := nil;
+    Result := True;
+  end;
+
+  if Assigned(NextStep) then
+  begin
+    NextStep := nil;
+    Result := True;
+  end;
+end;
+
+constructor TpjhjvGIFAnimator_pjh.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  FpjhTagInfo := TpjhTagInfo.Create;
+  FpjhBplFileName := pjhxIOCompBplFileName;
+end;
+
+function TpjhjvGIFAnimator_pjh.DeleteNextStep(
+  AWillDeleteComponent: TComponent): Boolean;
+begin
+  Result := False;
+
+  if Assigned(NextStep) then
+  begin
+    if NextStep.Name = AWillDeleteComponent.Name then
+    begin
+      NextStep := nil;
+      Result := True;
+    end;
+  end;
+end;
+
+destructor TpjhjvGIFAnimator_pjh.Destroy;
+begin
+  FpjhTagInfo.Free;
+  inherited;
+end;
+
+function TpjhjvGIFAnimator_pjh.GetBplFileName: string;
+begin
+  Result := FpjhBplFileName;
+end;
+
+function TpjhjvGIFAnimator_pjh.GetpjhTagInfo: TpjhTagInfo;
+begin
+  Result := FpjhTagInfo;
+end;
+
+function TpjhjvGIFAnimator_pjh.GetpjhValue: string;
+begin
+  Result := FpjhValue;
+end;
+
+procedure TpjhjvGIFAnimator_pjh.SetBplFileName(AValue: string);
+begin
+  FpjhBplFileName := AValue;
+end;
+
+function TpjhjvGIFAnimator_pjh.SetNextStepAuto(
+  ADestComponent: TComponent): Boolean;
+begin
+  Result := False;
+
+  if not Assigned(NextStep) then
+  begin
+    NextStep := ADestComponent as TJHCustomComponent;
+    Result := True;
+  end;
+end;
+
+procedure TpjhjvGIFAnimator_pjh.SetpjhTagInfo(AValue: TpjhTagInfo);
+begin
+  FpjhTagInfo.Assign(AValue);
+end;
+
+procedure TpjhjvGIFAnimator_pjh.SetpjhValue(AValue: string);
+begin
+  if FpjhValue <> AValue then
+  begin
+    FpjhValue := AValue;
+    Animate := StrToBool(AValue);
+  end;
+end;
+
+end.
