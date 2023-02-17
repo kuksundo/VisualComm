@@ -53,6 +53,7 @@ contains
   pjhDateTimeLabel in 'pjhDateTimeLabel.pas',
   DateTimeLabelUnit in '..\..\..\..\..\Dev\Lang\Delphi\Component\Vcl\dtlbl\DateTimeLabelUnit.pas',
   pjhLabel4HiMECS in 'pjhLabel4HiMECS.pas',
-  JHP.Util.Bit in '..\..\..\..\..\Dev\Lang\Delphi\Common\JHP.Util.Bit.pas';
+  JHP.Util.Bit in '..\..\..\..\..\Dev\Lang\Delphi\Common\JHP.Util.Bit.pas',
+  pjhBalloonCompIntf in 'pjhBalloonCompIntf.pas';
 
 end.

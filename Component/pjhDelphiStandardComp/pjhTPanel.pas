@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Extctrls,
   Vcl.AppEvnts, Vcl.Graphics, Generics.Collections, ClipBrd, Forms,
   XBaloon, JvBalloonHint,
-  pjhclasses, pjhDesignCompIntf, pjhDelphiStandardCompConst, UnitBalloonConst;
+  pjhclasses, pjhDesignCompIntf, pjhDelphiStandardCompConst, UnitBalloonConst,
+  pjhBalloonCompIntf;
 
 type
   TpjhTPanel = class(TPanel, IpjhDesignCompInterface)
@@ -50,7 +51,7 @@ type
     7.4 만약 BalloonFindCompName 속성에 표시될 컴포넌트 이름이 들어가지 않을 경우 Component Name을 수기로 입력한다
   8. Watch2에서 "Move pjhValue To Item and Save To DB" 메뉴를 선택하여 CommandJson을 DB에 저장한다.
 *)
-  TpjhTPanelWithBalloon = class(TpjhTPanel)
+  TpjhTPanelWithBalloon = class(TpjhTPanel, IpjhBalloonCompInterface)
   private
     FBalloonObjList: TObjectList<TBaloonWindow>;
     FBalloon: TBaloonWindow;
@@ -91,6 +92,9 @@ type
 
     procedure SendData2MainformAsJson(const ACompName, APropName, AValue: string);
   protected
+    //For IpjhDesignCompInterface
+    function GetBalloonRecordFromPropertyToJson(): string;
+    //For IpjhDesignCompInterface
     procedure SetBalloonHideIfMouseMove(const Value: Boolean);
     procedure SetBalloonFont(Value: TFont);
     procedure SetBalloonActiveColor      (const Value: TColor);
@@ -98,7 +102,6 @@ type
     procedure SetBalloonText(const Value: TStrings);
     procedure SetBalloonRecord(const Value: TBalloonRecord);
     procedure AppEventsShortCut(var Msg: TWMKey; var Handled: Boolean);
-    function GetBalloonRecordFromPropertyToJson(): string;
     function GetComponentPosition(var APoint: TPoint): Boolean;
     procedure GetTextFromBalloonRecAndShowBalloon;
     procedure GetTextFromClipBoardAndShowBalloon;

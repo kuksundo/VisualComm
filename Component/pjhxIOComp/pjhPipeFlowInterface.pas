@@ -14,6 +14,9 @@ type
     //존재하는 NextStep Propperty Name List를 반환함 (ex: 'NextStep,NextStep2,PrevNextStep')
     //CommandJson에서 사용함
     function GetXStepNameListWithComma: string;
+    //NextStep에 할당 된 Component Name List를 반환함
+    //Circulation Check를 위해 사용됨
+    function GetNextStepListWithComma: string;
   end;
 
 implementation
