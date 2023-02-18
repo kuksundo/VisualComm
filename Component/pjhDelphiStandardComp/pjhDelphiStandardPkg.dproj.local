@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899-12-30 00:00:00.000.092,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.text.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.422,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.text.pas=</Transaction>
+<<<<<<< HEAD
     <Transaction>1899-12-30 00:00:00.000.188,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.json.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.382,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.buffers.pas=</Transaction>
     <Transaction>1899-12-30 00:00:00.000.404,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.json.pas=</Transaction>
@@ -10,9 +10,23 @@
     <Transaction>1899-12-30 00:00:00.000.704,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.rtti.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.180,=JvSystem.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.416,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.rtti.pas=</Transaction>
+=======
+    <Transaction>1899-12-30 00:00:00.000.913,E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhTXBaloon.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.092,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.text.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.404,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.json.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.188,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.json.pas</Transaction>
+>>>>>>> 174f944ede66939bf9d4c1c7102da9c15ffe4568
     <Transaction>1899-12-30 00:00:00.000.118,=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhTXBaloon.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.781,C:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhDelphiStandardCompConst.pas=C:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.180,=JvSystem.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.704,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.rtti.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.367,=E:\pjh\Dev\Lang\Delphi\Component\Vcl\dtlbl\DateTimeLabelUnit.pas</Transaction>
+<<<<<<< HEAD
     <Transaction>1899-12-30 00:00:00.000.265,C:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhTPanel.pas=C:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas</Transaction>
+=======
+    <Transaction>1899-12-30 00:00:00.000.416,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.rtti.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.904,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.buffers.pas</Transaction>
+>>>>>>> 174f944ede66939bf9d4c1c7102da9c15ffe4568
     <Transaction>1899-12-30 00:00:00.000.959,=E:\pjh\Dev\Lang\Delphi\Common\JHP.Util.Bit.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.292,=Jcl.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.017,=ggbutton.dcp</Transaction>
@@ -23,19 +37,27 @@
     <Transaction>1899-12-30 00:00:00.000.685,=F2_pjhPackageUnits.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.763,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.base.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.202,C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\Package1.dproj=C:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.425,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.unicode.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.268,=vclimg.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.490,E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhDateTimeLabel.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.355,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.unicode.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.915,=ClockLbl.dcp</Transaction>
+<<<<<<< HEAD
     <Transaction>1899-12-30 00:00:00.000.410,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.os.pas=</Transaction>
     <Transaction>1899-12-30 00:00:00.000.028,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.os.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.268,=vclimg.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.743,E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhLabel4HiMECS.pas</Transaction>
+=======
+    <Transaction>1899-12-30 00:00:00.000.425,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.unicode.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.856,=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.823,E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhBalloonCompIntf.pas</Transaction>
+>>>>>>> 174f944ede66939bf9d4c1c7102da9c15ffe4568
     <Transaction>1899-12-30 00:00:00.000.674,=E:\pjh\project\util\HiMECS\Application\Utility\Watch2\UnitBalloonConst.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.743,E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhLabel4HiMECS.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.238,=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.490,E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhDateTimeLabel.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.093,=E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.365,=JvCustom.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.028,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.os.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.318,=JvCore.dcp</Transaction>
+<<<<<<< HEAD
     <Transaction>1899-12-30 00:00:00.000.265,=JvCustom.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.342,=JvSystem.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.781,C:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhDelphiStandardCompConst.pas=C:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\Unit1.pas</Transaction>
@@ -43,8 +65,18 @@
     <Transaction>1899-12-30 00:00:00.000.838,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.data.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.389,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.data.pas=</Transaction>
     <Transaction>1899-12-30 00:00:00.000.108,=A2_pjhCompSharedPkg.dcp</Transaction>
+=======
+    <Transaction>1899-12-30 00:00:00.000.397,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.datetime.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.265,=JvCustom.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.342,=JvSystem.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.365,=JvCustom.dcp</Transaction>
+>>>>>>> 174f944ede66939bf9d4c1c7102da9c15ffe4568
     <Transaction>1899-12-30 00:00:00.000.037,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.datetime.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.838,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.data.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.410,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.os.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.389,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\mORMot2-master\src\core\mormot.core.data.pas=</Transaction>
     <Transaction>1899-12-30 00:00:00.000.389,=A2_pjhCompSharedPkg.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.108,=A2_pjhCompSharedPkg.dcp</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\..\..\util"/>
@@ -63,6 +95,7 @@
     <File Path="..\..\..\..\..\Dev\Lang\Delphi\Component\Vcl"/>
     <File Path="..\..\..\..\..\Dev\Lang\Delphi\Component\Vcl\dtlbl"/>
     <File Path="..\..\..\..\..\Dev\Lang\Delphi\Component\Vcl\dtlbl\DateTimeLabelUnit.pas"/>
+    <File Path="pjhBalloonCompIntf.pas"/>
     <File Path="pjhDateTimeLabel.pas"/>
     <File Path="pjhDelphiStandard.res"/>
     <File Path="pjhDelphiStandardCompConst.pas"/>

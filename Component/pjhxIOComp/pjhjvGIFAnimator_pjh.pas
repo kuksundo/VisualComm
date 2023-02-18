@@ -30,6 +30,7 @@ type
     function DeleteNextStep(AWillDeleteComponent: TComponent): Boolean;
     function ClearXStep: Boolean;
     function GetXStepNameListWithComma: string;
+    function GetNextStepListWithComma: string;
     //For IpjhPipeFlowInterface <====
   published
     //For IpjhDesignCompInterface
@@ -93,6 +94,14 @@ end;
 function TpjhjvGIFAnimator_pjh.GetBplFileName: string;
 begin
   Result := FpjhBplFileName;
+end;
+
+function TpjhjvGIFAnimator_pjh.GetNextStepListWithComma: string;
+begin
+  Result := '';
+
+  if Assigned(NextStep) then
+    Result := NextStep.Name;
 end;
 
 function TpjhjvGIFAnimator_pjh.GetpjhTagInfo: TpjhTagInfo;

@@ -31,6 +31,7 @@ type
     function DeleteNextStep(AWillDeleteComponent: TComponent): Boolean;
     function ClearXStep: Boolean;
     function GetXStepNameListWithComma: string;
+    function GetNextStepListWithComma: string;
     //For IpjhPipeFlowInterface <====
   published
     //For IpjhDesignCompInterface
@@ -116,6 +117,17 @@ end;
 function TpjhiMotor_pjh.GetBplFileName: string;
 begin
   Result := FpjhBplFileName;
+end;
+
+function TpjhiMotor_pjh.GetNextStepListWithComma: string;
+begin
+  Result := '';
+
+  if Assigned(NextStep) then
+    Result := NextStep.Name;
+
+  if Assigned(NextStep2) then
+    Result := Result + ',' + NextStep2.Name;
 end;
 
 function TpjhiMotor_pjh.GetpjhTagInfo: TpjhTagInfo;

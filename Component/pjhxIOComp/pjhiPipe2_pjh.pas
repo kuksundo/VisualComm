@@ -161,7 +161,7 @@ begin
   begin
     if ATriggerObj.InheritsFrom(TpjhiPipeJoint2_pjh) then
     begin
-      FlowReverse := FOriginalReverseFlow;
+//      FlowReverse := FOriginalReverseFlow;
       //Pipe를 Notify한 이전 TiPipeJoint_pjh의 입력 파이프 상태를 가져옴
       TpjhiPipeJoint2_pjh(ATriggerObj).GetPrevStepStatus(LOnStatus, APrevStatus);
       //Joint이므로 Valve 입력 파이프와 Valve 출력 파이프가 상태가 동일 해야 함

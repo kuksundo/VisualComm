@@ -1,0 +1,15 @@
+__history/
+Win32/
+Debug/
+*.bpl
+*.dcu
+*.exe
+*.dcp
+*.sqlite
+*.dll
+*.pdf
+*.doc
+*.docx
+*.irf
+*.iif
+*.irf2

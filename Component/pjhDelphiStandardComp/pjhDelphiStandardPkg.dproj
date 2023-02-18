@@ -141,6 +141,7 @@
         <DCCReference Include="..\..\..\..\..\Dev\Lang\Delphi\Component\Vcl\dtlbl\DateTimeLabelUnit.pas"/>
         <DCCReference Include="pjhLabel4HiMECS.pas"/>
         <DCCReference Include="..\..\..\..\..\Dev\Lang\Delphi\Common\JHP.Util.Bit.pas"/>
+        <DCCReference Include="pjhBalloonCompIntf.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
