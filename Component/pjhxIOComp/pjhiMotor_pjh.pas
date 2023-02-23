@@ -32,6 +32,7 @@ type
     function ClearXStep: Boolean;
     function GetXStepNameListWithComma: string;
     function GetNextStepListWithComma: string;
+    function GetPrevStepListWithComma: string;
     //For IpjhPipeFlowInterface <====
   published
     //For IpjhDesignCompInterface
@@ -138,6 +139,17 @@ end;
 function TpjhiMotor_pjh.GetpjhValue: string;
 begin
   Result := FpjhValue;
+end;
+
+function TpjhiMotor_pjh.GetPrevStepListWithComma: string;
+begin
+  Result := '';
+
+  if Assigned(PrevStep) then
+    Result := PrevStep.Name;
+
+  if Assigned(PrevStep2) then
+    Result := Result + ',' + PrevStep.Name;
 end;
 
 function TpjhiMotor_pjh.GetXStepNameListWithComma: string;

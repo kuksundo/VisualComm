@@ -3,7 +3,7 @@
 	<Transactions>
     <Transaction>1899-12-30 00:00:00.000.887,=A2_pjhCompSharedPkg.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.545,=pjhTMSCompSharedPkg.dcp</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.578,C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\Package1.dproj=C:\pjh\project\util\VisualComm\Component\pjhTMSComp\pjhTMSSmoothCompPkg.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.578,C:\pjh\project\util\VisualComm\Component\pjhTMSComp\pjhTMSSmoothCompPkg.dproj=C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\Package1.dproj</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="-1" SortType="1"/>
 </BorlandProject>
