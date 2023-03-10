@@ -82,6 +82,17 @@ type
     property BevelShapeType: TpjhTCyBevelShapeType read GetBevelShapeType write SetBevelShapeType;
   end;
 
+  TpjhTCyBevel2 = class(TpjhTCyBevel)
+  protected
+    FTargetName: string;
+
+    procedure SetTargetName(AValue: string); virtual;
+  public
+    //CyBebel Component를 이동 시킬 컴포넌트 이름
+    //컴포넌트를 이름으로 검색하여 CyBebel을 이동 시킨 후 크기를 알맞게 변경하여 보여줌
+    property TargetName: string read FTargetName write SetTargetName;
+  end;
+
 implementation
 
 { TpjhTCyBevel }
@@ -324,6 +335,16 @@ begin
     FpjhValue := AValue;
 
     Visible := AValue = '1';
+  end;
+end;
+
+{ TpjhTCyBevel2 }
+
+procedure TpjhTCyBevel2.SetTargetName(AValue: string);
+begin
+  if FTargetName <> AValue then
+  begin
+    FTargetName := AValue;
   end;
 end;
 
