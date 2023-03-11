@@ -259,8 +259,9 @@ begin
 
     FpjhValue := AValue;
 
-    if i > 0 then
-      Click;
+    if not (csLoading in ComponentState) then
+      if i > 0 then
+        Click;
   end;
 end;
 

@@ -6,6 +6,6 @@
     <Transaction>1899-12-30 00:00:00.000.241,E:\pjh\project\util\VisualComm\package\DesignManagerg.groupproj=E:\pjh\project\util\VisualComm\Component\pjhComponentInstall.groupproj</Transaction>
   </Transactions>
 	<Default.Personality>
-		<Projects ActiveProject="E:\pjh\project\util\VisualComm\Component\pjhDelphiStandardComp\pjhDelphiStandardPkg.dproj"/>
+		<Projects ActiveProject="E:\pjh\project\util\VisualComm\Component\pjhJvComp\pjhJvCompPkg.dproj"/>
 	</Default.Personality>
 </BorlandProject>

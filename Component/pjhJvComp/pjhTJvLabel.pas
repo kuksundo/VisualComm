@@ -1,7 +1,7 @@
 unit pjhTJvLabel;
 
 interface
-
+{Build error 발생시 pjhclasses unit을 삭제하여 Build 후 삭제 취소 후 다시 Build 하면 성공함}
 uses
   Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Extctrls,
   JvLabel, pjhclasses, pjhDesignCompIntf, pjhJvCompConst;
