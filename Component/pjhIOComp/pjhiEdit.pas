@@ -24,6 +24,7 @@ type
   public
     constructor Create(AOwner: TComponent);  override;
     destructor  Destroy;                     override;
+//    procedure EditOnChange(Sender: TObject);
   published
     //For IpjhDesignCompInterface
     property pjhTagInfo: TpjhTagInfo read GetpjhTagInfo write SetpjhTagInfo;
@@ -41,6 +42,7 @@ begin
   inherited Create(AOwner);
   FpjhTagInfo := TpjhTagInfo.Create;
   FpjhBplFileName := pjhIOCompStdBplFileName;
+//  FOnChange := EditOnChange;
 end;
 
 destructor TpjhiEdit.Destroy;
@@ -48,6 +50,11 @@ begin
   FpjhTagInfo.Free;
   inherited;
 end;
+
+//procedure TpjhiEdit.EditOnChange(Sender: TObject);
+//begin
+//  iDoSetFocus;
+//end;
 
 function TpjhiEdit.GetBplFileName: string;
 begin
