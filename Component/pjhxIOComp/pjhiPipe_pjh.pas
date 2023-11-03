@@ -3,7 +3,7 @@ unit pjhiPipe_pjh;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Menus,
+  Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Menus, Vcl.Graphics,
   iPipe_pjh, pjhclasses, pjhDesignCompIntf, pjhPipeFlowInterface, pjhxIOCompConst,
   UnitPipeData;
 
@@ -22,6 +22,8 @@ type
     function GetBplFileName: string;
     procedure SetBplFileName(AValue: string);
     //For IpjhDesignCompInterface
+
+    procedure PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap); virtual; abstract;
   public
     constructor Create(AOwner: TComponent);  override;
     destructor  Destroy;                     override;
@@ -68,6 +70,9 @@ end;
 constructor TpjhiPipe_pjh.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
+
+  OnPaintAfter := PipeOnPaintAfter;
+
   FpjhTagInfo := TpjhTagInfo.Create;
   FpjhBplFileName := pjhxIOCompBplFileName;
 end;

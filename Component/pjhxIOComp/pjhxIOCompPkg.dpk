@@ -50,6 +50,7 @@ contains
   pjhiPipeJoint2_pjh in 'pjhiPipeJoint2_pjh.pas',
   pjhiPipe2_pjh in 'pjhiPipe2_pjh.pas',
   UnitRevFlowCommon in 'UnitRevFlowCommon.pas',
-  UnitRevFlowInterface in 'UnitRevFlowInterface.pas';
+  UnitRevFlowInterface in 'UnitRevFlowInterface.pas',
+  UnitVCLUtil in '..\..\..\..\..\Dev\Lang\Delphi\Common\UnitVCLUtil.pas';
 
 end.

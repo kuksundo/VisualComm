@@ -138,6 +138,7 @@
         <DCCReference Include="pjhiPipe2_pjh.pas"/>
         <DCCReference Include="UnitRevFlowCommon.pas"/>
         <DCCReference Include="UnitRevFlowInterface.pas"/>
+        <DCCReference Include="..\..\..\..\..\Dev\Lang\Delphi\Common\UnitVCLUtil.pas"/>
         <None Include="..\..\..\..\..\vcl\IOComp\Product\DelphiXE5\iIncludeUses.inc"/>
         <None Include="..\..\..\..\..\vcl\IOComp\Product\DelphiXE5\iInclude.inc"/>
         <RcCompile Include="pjhxIOCompPkg.rc">
