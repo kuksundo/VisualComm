@@ -23,7 +23,7 @@ type
     procedure SetBplFileName(AValue: string);
     //For IpjhDesignCompInterface
 
-    procedure PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap); virtual; abstract;
+    procedure PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap); virtual;
   public
     constructor Create(AOwner: TComponent);  override;
     destructor  Destroy;                     override;
@@ -133,6 +133,11 @@ end;
 function TpjhiPipe_pjh.GetXStepNameListWithComma: string;
 begin
   Result := 'NextStep,PrevStep';
+end;
+
+procedure TpjhiPipe_pjh.PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap);
+begin
+//
 end;
 
 procedure TpjhiPipe_pjh.SetBplFileName(AValue: string);

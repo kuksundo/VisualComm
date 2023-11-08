@@ -84,6 +84,7 @@ uses
   , pjhFlowChartCompnents
   , FlowChartLogic, pjhStartButton
   , pjhDelphiStandardCompList
+  , pjhIOCompStdList
   , pjhTBevel
   , pjhTGridPanel
   , pjhTImage
@@ -434,7 +435,7 @@ implementation
 {$R *.dfm}
 
 uses frmDocInterface, frmConst, About, UtilUnit, pjhOIInterface, UnitStringUtil,
-    WatchConst2, Watch2Interface
+    WatchConst2, Watch2Interface, UnitDFMUtil
     {$IFDEF DESIGN_DEBUG_MODE}
 //    , pjhTPanel
     {$ENDIF}
@@ -2227,6 +2228,7 @@ begin
 {$ELSE}
   //FPaletteList.AddStrings(pjhFlowChartCompnents.GetPaletteList);
   FPaletteList.AddStrings(pjhDelphiStandardCompList.GetPaletteList);
+  FPaletteList.AddStrings(pjhIOCompStdList.GetPaletteList);
 {$ENDIF}
 
   try

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899-12-30 00:00:00.000.689,=A4_pjhPackageUnits.dcp</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.510,=IndyCore.dcp</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.578,=A4_pjhPackageUnits.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.209,=A4_pjhPackageUnits.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.510,=IndyCore.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.689,=A4_pjhPackageUnits.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.578,=A4_pjhPackageUnits.dcp</Transaction>
     <Transaction>1899-12-30 00:00:00.000.838,=E:\pjh\vcl\extlib\pjhPropInsp.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.100,E:\pjh\vcl\extlib\pjhPropInsp.pas=</Transaction>
     <Transaction>1899-12-30 00:00:00.000.468,C:\pjh\project\util\VisualComm\pjhObjectInspector.dfm=C:\pjh\project\util\VisualComm\pjhObjectInspectorBpl.dfm</Transaction>

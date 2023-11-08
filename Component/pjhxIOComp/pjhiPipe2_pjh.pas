@@ -13,17 +13,10 @@ type
   private
     FRevNextStep: TJHCustomComponent;
     FRevPrevStep: TJHCustomComponent;
-    FAlphaBlend: Boolean;
-    FAlphaBlendValue: word;
 
     procedure SetRevNextStep(Value: TJHCustomComponent);
     procedure SetRevPrevStep(Value: TJHCustomComponent);
     procedure ClearRevStep;
-
-    procedure SetAlphaBlend(AValue: Boolean);
-    procedure SetAlphaBlendValue(AValue: Word);
-  protected
-    procedure PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap); override;
   public
     //For IpjhPipeFlowInterface ====>
     function SetNextStepAuto(ADestComponent: TComponent; AIsReverse: Boolean=false): Boolean;
@@ -51,10 +44,22 @@ type
   published
     property RevNextStep        : TJHCustomComponent   read FRevNextStep  write SetRevNextStep;
     property RevPrevStep        : TJHCustomComponent   read FRevPrevStep  write SetRevPrevStep;
-    property AlphaBlend         : Boolean              read FAlphaBlend  write SetAlphaBlend;
-    property AlphaBlendValue    : word                 read FAlphaBlendValue  write SetAlphaBlendValue;
   end;
 
+  TpjhiPipe2_Alpha = class(TpjhiPipe2_pjh)
+  private
+    FAlphaBlend: Boolean;
+    FAlphaBlendValue: word;
+  protected
+    procedure SetAlphaBlend(AValue: Boolean);
+    procedure SetAlphaBlendValue(AValue: Word);
+
+    procedure PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap); override;
+  published
+    property AlphaBlend         : Boolean              read FAlphaBlend  write SetAlphaBlend;
+    property AlphaBlendValue    : word                 read FAlphaBlendValue  write SetAlphaBlendValue;
+
+  end;
 implementation
 
 uses pjhiPipeJoint2_pjh, UnitJHIOCompCommon, UnitRevFlowCommon, UnitVCLUtil;
@@ -182,25 +187,6 @@ begin
   end;
 end;
 
-procedure TpjhiPipe2_pjh.PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap);
-var
-  LRect: TRect;
-begin
-  if FAlphaBlend then
-  begin
-    LRect.Top := 0;
-    LRect.Left := 0;
-    LRect.Bottom := Bitmap.Height;
-    LRect.Right := Bitmap.Width;
-
-    MakeAlphaOnRect2Bitmap(Bitmap, LRect, FAlphaBlendValue);
-  end
-  else
-  begin
-
-  end;
-end;
-
 function TpjhiPipe2_pjh.RevNotifyChangeFromObj(ATriggerObj: TJHCustomComponent;
   APrevStatus: TPipeInternalStatus): TPipeInternalStatus;
 var
@@ -225,22 +211,6 @@ begin
 //    end;
 //
 //    FFinishProgress := True;
-  end;
-end;
-
-procedure TpjhiPipe2_pjh.SetAlphaBlend(AValue: Boolean);
-begin
-  if FAlphaBlend <> AValue then
-  begin
-    FAlphaBlend := AValue;
-  end;
-end;
-
-procedure TpjhiPipe2_pjh.SetAlphaBlendValue(AValue: Word);
-begin
-  if FAlphaBlendValue <> AValue then
-  begin
-    FAlphaBlendValue := AValue;
   end;
 end;
 
@@ -362,6 +332,45 @@ end;
 function TpjhiPipe2_pjh.SetRevPrevStep4Source(ADestComponent: TComponent): Boolean;
 begin
   Result := False;
+end;
+
+{ TpjhiPipe2_Alpha }
+
+procedure TpjhiPipe2_Alpha.PipeOnPaintAfter(Sender: TObject; Bitmap: TBitmap);
+var
+  LRect: TRect;
+begin
+  if FAlphaBlend then
+  begin
+    LRect.Top := 0;
+    LRect.Left := 0;
+    LRect.Bottom := Bitmap.Height;
+    LRect.Right := Bitmap.Width;
+
+    MakeAlphaOnRect2Bitmap(Bitmap, LRect, FAlphaBlendValue);
+  end
+  else
+  begin
+    ReSetAlpha2Bitmap(Bitmap);
+  end;
+end;
+
+procedure TpjhiPipe2_Alpha.SetAlphaBlend(AValue: Boolean);
+begin
+  if FAlphaBlend <> AValue then
+  begin
+    FAlphaBlend := AValue;
+    InvalidateChange;
+  end;
+end;
+
+procedure TpjhiPipe2_Alpha.SetAlphaBlendValue(AValue: Word);
+begin
+  if FAlphaBlendValue <> AValue then
+  begin
+    FAlphaBlendValue := AValue;
+    InvalidateChange;
+  end;
 end;
 
 end.

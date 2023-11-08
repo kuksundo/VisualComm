@@ -22,7 +22,7 @@ begin
   RegisterComponents ('pjhxIOComp', [TpjhiValve_pjh,TpjhiValve2_pjh,TpjhiMotor_pjh]);
   RegisterComponents ('pjhxIOComp', [TpjhjvGIFAnimator_pjh,TpjhiPanel_jvGIFAni_pjh]);
   RegisterComponents ('pjhxIOComp2', [TpjhiTank2_pjh, TpjhiPipeJoint2_pjh]);
-  RegisterComponents ('pjhxIOComp2', [TpjhiPipe2_pjh]);
+  RegisterComponents ('pjhxIOComp2', [TpjhiPipe2_pjh, TpjhiPipe2_Alpha]);
 end;
 
 function GetPaletteList: TStringList;
@@ -39,7 +39,7 @@ begin
 
   LStr := 'xIOComp2=';
   LStr := LStr + 'TpjhiValve2_pjh;TpjhiTank2_pjh;';
-  LStr := LStr + 'TpjhiPipeJoint2_pjh;TpjhiPipe2_pjh;';
+  LStr := LStr + 'TpjhiPipeJoint2_pjh;TpjhiPipe2_pjh;TpjhiPipe2_Alpha;';
   Result.Add(LStr);
 end;
 
@@ -59,7 +59,7 @@ initialization
   RegisterClasses([TpjhiPipeJoint_pjh,TpjhiTank_pjh]);
   RegisterClasses([TpjhiValve_pjh,TpjhiValve2_pjh,TpjhiMotor_pjh]);
   RegisterClasses([TpjhjvGIFAnimator_pjh,TpjhiPanel_jvGIFAni_pjh]);
-  RegisterClasses([TpjhiTank2_pjh,TpjhiPipeJoint2_pjh,TpjhiPipe2_pjh]);
+  RegisterClasses([TpjhiTank2_pjh,TpjhiPipeJoint2_pjh,TpjhiPipe2_pjh,TpjhiPipe2_Alpha]);
 
 finalization
   //UnRegisterClasses([TpjhIfControl,TpjhGotoControl,TpjhStartControl,TpjhStopControl,TpjhDelay,TpjhSetTimer,TpjhIFTimer]);
@@ -67,6 +67,6 @@ finalization
   UnRegisterClasses([TpjhiPipeJoint_pjh,TpjhiTank_pjh]);
   UnRegisterClasses([TpjhiValve_pjh,TpjhiValve2_pjh,TpjhiMotor_pjh]);
   UnRegisterClasses([TpjhjvGIFAnimator_pjh,TpjhiPanel_jvGIFAni_pjh]);
-  UnRegisterClasses([TpjhiTank2_pjh,TpjhiPipeJoint2_pjh,TpjhiPipe2_pjh]);
+  UnRegisterClasses([TpjhiTank2_pjh,TpjhiPipeJoint2_pjh,TpjhiPipe2_pjh,TpjhiPipe2_Alpha]);
 
 end.
