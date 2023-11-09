@@ -84,7 +84,7 @@ uses
   , pjhFlowChartCompnents
   , FlowChartLogic, pjhStartButton
   , pjhDelphiStandardCompList
-  , pjhIOCompStdList
+  , pjhxIOCompList
   , pjhTBevel
   , pjhTGridPanel
   , pjhTImage
@@ -2228,7 +2228,7 @@ begin
 {$ELSE}
   //FPaletteList.AddStrings(pjhFlowChartCompnents.GetPaletteList);
   FPaletteList.AddStrings(pjhDelphiStandardCompList.GetPaletteList);
-  FPaletteList.AddStrings(pjhIOCompStdList.GetPaletteList);
+  FPaletteList.AddStrings(pjhxIOCompList.GetPaletteList);
 {$ENDIF}
 
   try
