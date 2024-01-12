@@ -120,7 +120,6 @@
         <DCCReference Include="pjhDelphiStandard.res"/>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="vcl.dcp"/>
-        <DCCReference Include="F2_pjhPackageUnits.dcp"/>
         <DCCReference Include="vclimg.dcp"/>
         <DCCReference Include="Jcl.dcp"/>
         <DCCReference Include="JvCore.dcp"/>
@@ -128,6 +127,7 @@
         <DCCReference Include="JvSystem.dcp"/>
         <DCCReference Include="JvCustom.dcp"/>
         <DCCReference Include="A2_pjhCompSharedPkg.dcp"/>
+        <DCCReference Include="F2_pjhPackageUnits.dcp"/>
         <DCCReference Include="pjhDelphiStandardCompList.pas"/>
         <DCCReference Include="pjhDelphiStandardCompConst.pas"/>
         <DCCReference Include="pjhTPanel.pas"/>

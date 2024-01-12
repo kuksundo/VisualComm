@@ -1,7 +1,6 @@
-package pjhDelphiStandardPkg;
+package F2_pjhPackageUnits2;
 
 {$R *.res}
-{$R 'pjhDelphiStandard.res'}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -29,20 +28,12 @@ package pjhDelphiStandardPkg;
 {$IMPLICITBUILD ON}
 
 requires
-  rtl,
-  vcl,
-  ggbutton,
-  A2_pjhCompSharedPkg;
+  rtl;
 
 contains
-  pjhDelphiStandardCompList in 'pjhDelphiStandardCompList.pas',
-  pjhDelphiStandardCompConst in 'pjhDelphiStandardCompConst.pas',
-  pjhTPanel in 'pjhTPanel.pas',
-  pjhTImage in 'pjhTImage.pas',
-  pjhTBevel in 'pjhTBevel.pas',
-  pjhTGridPanel in 'pjhTGridPanel.pas',
-  pjhTLedPanel in 'pjhTLedPanel.pas',
-  pjhTShadowButton in 'pjhTShadowButton.pas',
-  pjhTXBaloon in 'pjhTXBaloon.pas';
+  SynCommons in '..\..\..\OpenSrc\lib\mORMot\SynCommons.pas',
+  SynLZ in '..\..\..\OpenSrc\lib\mORMot\SynLZ.pas',
+  SynCrypto in '..\..\..\OpenSrc\lib\mORMot\SynCrypto.pas',
+  mORMot in '..\..\..\OpenSrc\lib\mORMot\SQLite3\mORMot.pas';
 
 end.

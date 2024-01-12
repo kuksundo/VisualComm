@@ -31,14 +31,14 @@ package pjhDelphiStandardPkg;
 requires
   rtl,
   vcl,
-  F2_pjhPackageUnits,
   vclimg,
   Jcl,
   JvCore,
   ggbutton,
   JvSystem,
   JvCustom,
-  A2_pjhCompSharedPkg;
+  A2_pjhCompSharedPkg,
+  F2_pjhPackageUnits;
 
 contains
   pjhDelphiStandardCompList in 'pjhDelphiStandardCompList.pas',

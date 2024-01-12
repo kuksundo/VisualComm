@@ -1,4 +1,5 @@
-package DesignManagerDock;
+package A2_pjhCompSharedPkg2;
+
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
@@ -29,19 +30,9 @@ package DesignManagerDock;
 requires
   rtl,
   vcl,
-  dbrtl,
-  VclSmp,
-  vcldb,
-  JvStdCtrls,
-  JvGlobus,
-  tmsdXE5,
-  vclFireDAC,
-  DCPXE5,
-  F1_pjhPackageUnits;
+  A1_pjhCommonUnit4ExtLib;
 
 contains
-  WatchConst2 in '..\..\HiMECS\Application\Utility\Watch2\WatchConst2.pas',
-  Watch2Interface in '..\..\HiMECS\Application\Utility\Watch2\common\Watch2Interface.pas',
-  frmDesignManagerDockUnit in '..\frmDesignManagerDockUnit.pas' {frmDesignManagerDock};
+  pjhDesignCompIntf in 'pjhDesignCompIntf.pas';
 
 end.

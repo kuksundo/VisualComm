@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.471,=E:\pjh\project\OpenSrc\lib\mORMot\SynLZ.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.880,E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\GrijjyFoundation-master\Grijjy.Bson.Serialization.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.320,=E:\pjh\Dev\Lang\Delphi\OpenSrc\lib\GrijjyFoundation-master\Grijjy.Bson.Serialization.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.198,=E:\pjh\project\common\XE7Units\UnitAddSystem_XE7.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.705,E:\pjh\project\common\XE7Units\UnitAddSystem_XE7.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.197,=pjhDelphiStandardPkg.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.321,=rtl.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.943,=E:\pjh\project\OpenSrc\lib\mORMot\SynCrypto.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.918,E:\pjh\project\util\VisualComm\package\F2_pjhPackageUnits.dproj=C:\Users\Administrator\Documents\RAD Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.882,=rtl.dcp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.201,=E:\pjh\project\OpenSrc\lib\mORMot\SQLite3\mORMot.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.656,=E:\pjh\project\OpenSrc\lib\mORMot\SynCommons.pas</Transaction>
+    <Transaction>2024-01-08 11:14:19.022,E:\pjh\project\util\VisualComm\package\F2_pjhPackageUnits2.dproj=E:\pjh\project\util\VisualComm\package\F2_pjhPackageUnits.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

@@ -71,7 +71,7 @@ constructor TpjhiPipe_pjh.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
 
-  OnPaintAfter := PipeOnPaintAfter;
+//  OnPaintAfter := PipeOnPaintAfter;
 
   FpjhTagInfo := TpjhTagInfo.Create;
   FpjhBplFileName := pjhxIOCompBplFileName;

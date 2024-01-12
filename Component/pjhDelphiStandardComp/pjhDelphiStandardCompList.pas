@@ -3,7 +3,7 @@ unit pjhDelphiStandardCompList;
 interface
 
 uses Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Menus,
-    pjhDelphiStandardCompConst, pjhTPanel, pjhTImage, pjhTBevel, pjhTGridPanel,
+    pjhDelphiStandardCompConst, pjhTPanel2, pjhTImage, pjhTBevel, pjhTGridPanel,
     pjhTLedPanel, pjhTShadowButton, pjhDateTimeLabel, pjhLabel4HiMECS;
 
   function GetPaletteList: TStringList;

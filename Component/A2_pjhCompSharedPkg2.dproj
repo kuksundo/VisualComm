@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{7CA8D36E-B475-487A-9037-27B0AD20BC9C}</ProjectGuid>
-        <MainSource>A2_pjhCompSharedPkg.dpk</MainSource>
+        <MainSource>A2_pjhCompSharedPkg2.dpk</MainSource>
         <ProjectVersion>15.3</ProjectVersion>
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
@@ -105,7 +105,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">A2_pjhCompSharedPkg.dpk</Source>
+                    <Source Name="MainSource">A2_pjhCompSharedPkg2.dpk</Source>
                 </Source>
                 <VersionInfo>
                     <VersionInfo Name="IncludeVerInfo">True</VersionInfo>

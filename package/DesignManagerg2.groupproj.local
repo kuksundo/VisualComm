@@ -2,6 +2,6 @@
 <BorlandProject>
 	<Transactions/>
 	<Default.Personality>
-		<Projects ActiveProject="E:\pjh\project\util\VisualComm\Component\pjhxIOComp\pjhxIOCompPkg.dproj"/>
+		<Projects ActiveProject="E:\pjh\vcl\extlib\A1_pjhCommonUnit4ExtLib.dproj"/>
 	</Default.Personality>
 </BorlandProject>
