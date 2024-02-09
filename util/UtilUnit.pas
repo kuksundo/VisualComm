@@ -30,9 +30,9 @@ function File_Open_Append(FileName:string;var Data:String;
                       AppendPosition:integer;IsUpdate:Boolean): Boolean;
 procedure CreateShowModal(FormClass:TFormClass);
 procedure DeleteAllComponents(ParentControl: TWinControl);
-//procedure SaveToDFM(const FileName: string; ParentControl: TWinControl; AIsSaveToText: Boolean = False);
-//function LoadFromDFM(const FileName: string; ParentControl: TWinControl;
-//  AProc: TReaderError; AIsLoadFromText: Boolean = False): integer;
+procedure SaveToDFM(const FileName: string; ParentControl: TWinControl; AIsSaveToText: Boolean = False);
+function LoadFromDFM(const FileName: string; ParentControl: TWinControl;
+  AProc: TReaderError; AIsLoadFromText: Boolean = False): integer;
 //procedure SaveToDFM2(const FileName: string; ParentControl: TWinControl);
 //function LoadFromDFM2(const FileName: string; ParentControl: TWinControl): integer;
 //procedure SaveBinDFM2TextDFM(const ABinFileName, ATextFileName: string;
@@ -436,56 +436,56 @@ begin
   end;
 end;
 
-//procedure SaveToDFM(const FileName: string; ParentControl: TWinControl; AIsSaveToText: Boolean);
-//var
-//  FS: TFileStream;
-//  MemoryStream: TMemoryStream;
-//  StringStream: TStringStream;
-//  Writer: TWriter;
-//  RealName: string;
-//begin
-//  if AIsSaveToText then
-//  begin
-////    MemoryStream := TMemoryStream.Create;
-////    try
-////      Writer := TWriter.Create(MemoryStream, 4096);
-////      try
-////        WriteComp;
-////      finally
-////        Writer.Free;
-////      end;
-////
-////      StringStream := TStringStream.Create;
-////      try
-////        MemoryStream.Position := 0;
-////        ObjectBinaryToText(MemoryStream, StringStream);
-////        StringStream.SaveToFile(FileName);
-////      finally
-////        StringStream.Free;
-////      end;
-////    finally
-////      MemoryStream.Free;
-////    end;
-//  end
-//  else
-//  begin
-//    FS := TFileStream.Create(FileName, fmCreate or fmShareDenyWrite);
+procedure SaveToDFM(const FileName: string; ParentControl: TWinControl; AIsSaveToText: Boolean);
+var
+  FS: TFileStream;
+  MemoryStream: TMemoryStream;
+  StringStream: TStringStream;
+  Writer: TWriter;
+  RealName: string;
+begin
+  if AIsSaveToText then
+  begin
+//    MemoryStream := TMemoryStream.Create;
 //    try
-//      Writer := TWriter.Create(FS, 4096);
+//      Writer := TWriter.Create(MemoryStream, 4096);
 //      try
-//        Writer.Root := ParentControl;//.Owner;
-//        RealName := ParentControl.Name;
-//        ParentControl.Name := '';
-//        Writer.WriteComponent(ParentControl);
-//        ParentControl.Name := RealName;
+//        WriteComp;
 //      finally
 //        Writer.Free;
 //      end;
+//
+//      StringStream := TStringStream.Create;
+//      try
+//        MemoryStream.Position := 0;
+//        ObjectBinaryToText(MemoryStream, StringStream);
+//        StringStream.SaveToFile(FileName);
+//      finally
+//        StringStream.Free;
+//      end;
 //    finally
-//      FS.Free;
+//      MemoryStream.Free;
 //    end;
-//  end;
-//end;
+  end
+  else
+  begin
+    FS := TFileStream.Create(FileName, fmCreate or fmShareDenyWrite);
+    try
+      Writer := TWriter.Create(FS, 4096);
+      try
+        Writer.Root := ParentControl;//.Owner;
+        RealName := ParentControl.Name;
+        ParentControl.Name := '';
+        Writer.WriteComponent(ParentControl);
+        ParentControl.Name := RealName;
+      finally
+        Writer.Free;
+      end;
+    finally
+      FS.Free;
+    end;
+  end;
+end;
 //
 //procedure SaveToDFM2(const FileName: string; ParentControl: TWinControl);
 //var
@@ -628,151 +628,151 @@ end;
 //  end;
 //end;
 //
-//function LoadFromDFM(const FileName: string; ParentControl: TWinControl;
-//  AProc: TReaderError; AIsLoadFromText: Boolean): integer;
-//var
-//  FS: TFileStream;
-//  MemoryStream: TMemoryStream;
-//  StringStream: TStringStream;
-//  Reader: TReader;
-//  RealName: string;
-//  LStreamOriginalFormat: TStreamOriginalFormat;
-//begin
-//  Result := 0;
-//
-//  if not FileExists(FileName) then
+function LoadFromDFM(const FileName: string; ParentControl: TWinControl;
+  AProc: TReaderError; AIsLoadFromText: Boolean): integer;
+var
+  FS: TFileStream;
+  MemoryStream: TMemoryStream;
+  StringStream: TStringStream;
+  Reader: TReader;
+  RealName: string;
+  LStreamOriginalFormat: TStreamOriginalFormat;
+begin
+  Result := 0;
+
+  if not FileExists(FileName) then
+  begin
+    Result := 1;
+    Exit;
+  end;
+
+  MemoryStream := nil;
+
+  DeleteAllComponents(ParentControl);
+
+//  if AIsLoadFromText then
 //  begin
-//    Result := 1;
-//    Exit;
-//  end;
-//
-//  MemoryStream := nil;
-//
-//  DeleteAllComponents(ParentControl);
-//
-////  if AIsLoadFromText then
-////  begin
-////    StringStream := TStringStream.Create();
-////    try
-////      StringStream.LoadFromFile(FileName);
-////      StringStream.Position := 0;
-////      MemoryStream := TMemoryStream.Create;
-////      try
-////        ObjectTextToBinary(StringStream, MemoryStream);
-////        MemoryStream.Position := 0;
-////
-////        Reader := TReader.Create(MemoryStream, 4096);
-////        try
-////          Reader.OnError := AProc;
-////          // Save the parent's name, in case we are reading into a different
-////          // control than we saved the diagram from
-////          RealName := ParentControl.Name;
-////          Reader.Root := ParentControl;//.Owner;
-////          Reader.BeginReferences;
-////          try
-////            Reader.ReadComponent(ParentControl);
-////          finally
-////            Reader.FixupReferences;
-////            Reader.EndReferences;
-////          end;
-////          // Restore the parent's name
-////          ParentControl.Name := RealName;
-////        finally
-////          Reader.Free;
-////        end;
-////      finally
-////        MemoryStream.Free;
-////      end;
-////    finally
-////      StringStream.Free;
-////    end;
-////  end
-////  else
-////  begin
-//    FS := TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
-//    LStreamOriginalFormat := TestStreamFormat(FS);
-//    case LStreamOriginalFormat of
-//      sofBinary: begin
-//      //  FS.ReadResHeader;
-//        Reader := TReader.Create(FS, 4096);
-////        try
-////          Reader.OnError := AProc;
-////          // Save the parent's name, in case we are reading into a different
-////          // control than we saved the diagram from
-////          RealName := ParentControl.Name;
-////          Reader.Root := ParentControl;//.Owner;
-////          Reader.BeginReferences;
-////          try
-////            Reader.ReadComponent(ParentControl);
-////      //      Reader.ReadRootComponent(ParentControl);
-////          finally
-////            Reader.FixupReferences;
-////            Reader.EndReferences;
-////          end;
-////          // Restore the parent's name
-////          ParentControl.Name := RealName;
-////        finally
-////          Reader.Free;
-////          FS.Free;
-////        end;
-//      end;//sofBinary
-//
-//      sofText: begin
-//        MemoryStream := TMemoryStream.Create;
-////        try
-//          ObjectTextToBinary(FS, MemoryStream);
-//          MemoryStream.Position := 0;
-//
-//          Reader := TReader.Create(MemoryStream, 4096);
-////          try
-////            Reader.OnError := AProc;
-////            // Save the parent's name, in case we are reading into a different
-////            // control than we saved the diagram from
-////            RealName := ParentControl.Name;
-////            Reader.Root := ParentControl;//.Owner;
-////            Reader.BeginReferences;
-////            try
-////              Reader.ReadComponent(ParentControl);
-////            finally
-////              Reader.FixupReferences;
-////              Reader.EndReferences;
-////            end;
-////            // Restore the parent's name
-////            ParentControl.Name := RealName;
-////          finally
-////            Reader.Free;
-////          end;
-////        finally
-////          MemoryStream.Free;
-////        end;
-//      end;//sofText
-//    end;//case
-//
+//    StringStream := TStringStream.Create();
 //    try
-//      Reader.OnError := AProc;
-//      // Save the parent's name, in case we are reading into a different
-//      // control than we saved the diagram from
-//      RealName := ParentControl.Name;
-//      Reader.Root := ParentControl;//.Owner;
-//      Reader.BeginReferences;
+//      StringStream.LoadFromFile(FileName);
+//      StringStream.Position := 0;
+//      MemoryStream := TMemoryStream.Create;
 //      try
-//        Reader.ReadComponent(ParentControl);
-//  //      Reader.ReadRootComponent(ParentControl);
-//      finally
-//        Reader.FixupReferences;
-//        Reader.EndReferences;
-//      end;
-//      // Restore the parent's name
-//      ParentControl.Name := RealName;
-//    finally
-//      Reader.Free;
-//      FS.Free;
+//        ObjectTextToBinary(StringStream, MemoryStream);
+//        MemoryStream.Position := 0;
 //
-//      if Assigned(MemoryStream) then
+//        Reader := TReader.Create(MemoryStream, 4096);
+//        try
+//          Reader.OnError := AProc;
+//          // Save the parent's name, in case we are reading into a different
+//          // control than we saved the diagram from
+//          RealName := ParentControl.Name;
+//          Reader.Root := ParentControl;//.Owner;
+//          Reader.BeginReferences;
+//          try
+//            Reader.ReadComponent(ParentControl);
+//          finally
+//            Reader.FixupReferences;
+//            Reader.EndReferences;
+//          end;
+//          // Restore the parent's name
+//          ParentControl.Name := RealName;
+//        finally
+//          Reader.Free;
+//        end;
+//      finally
 //        MemoryStream.Free;
+//      end;
+//    finally
+//      StringStream.Free;
 //    end;
-////  end;
-//end;
+//  end
+//  else
+//  begin
+    FS := TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
+    LStreamOriginalFormat := TestStreamFormat(FS);
+    case LStreamOriginalFormat of
+      sofBinary: begin
+      //  FS.ReadResHeader;
+        Reader := TReader.Create(FS, 4096);
+//        try
+//          Reader.OnError := AProc;
+//          // Save the parent's name, in case we are reading into a different
+//          // control than we saved the diagram from
+//          RealName := ParentControl.Name;
+//          Reader.Root := ParentControl;//.Owner;
+//          Reader.BeginReferences;
+//          try
+//            Reader.ReadComponent(ParentControl);
+//      //      Reader.ReadRootComponent(ParentControl);
+//          finally
+//            Reader.FixupReferences;
+//            Reader.EndReferences;
+//          end;
+//          // Restore the parent's name
+//          ParentControl.Name := RealName;
+//        finally
+//          Reader.Free;
+//          FS.Free;
+//        end;
+      end;//sofBinary
+
+      sofText: begin
+        MemoryStream := TMemoryStream.Create;
+//        try
+          ObjectTextToBinary(FS, MemoryStream);
+          MemoryStream.Position := 0;
+
+          Reader := TReader.Create(MemoryStream, 4096);
+//          try
+//            Reader.OnError := AProc;
+//            // Save the parent's name, in case we are reading into a different
+//            // control than we saved the diagram from
+//            RealName := ParentControl.Name;
+//            Reader.Root := ParentControl;//.Owner;
+//            Reader.BeginReferences;
+//            try
+//              Reader.ReadComponent(ParentControl);
+//            finally
+//              Reader.FixupReferences;
+//              Reader.EndReferences;
+//            end;
+//            // Restore the parent's name
+//            ParentControl.Name := RealName;
+//          finally
+//            Reader.Free;
+//          end;
+//        finally
+//          MemoryStream.Free;
+//        end;
+      end;//sofText
+    end;//case
+
+    try
+      Reader.OnError := AProc;
+      // Save the parent's name, in case we are reading into a different
+      // control than we saved the diagram from
+      RealName := ParentControl.Name;
+      Reader.Root := ParentControl;//.Owner;
+      Reader.BeginReferences;
+      try
+        Reader.ReadComponent(ParentControl);
+  //      Reader.ReadRootComponent(ParentControl);
+      finally
+        Reader.FixupReferences;
+        Reader.EndReferences;
+      end;
+      // Restore the parent's name
+      ParentControl.Name := RealName;
+    finally
+      Reader.Free;
+      FS.Free;
+
+      if Assigned(MemoryStream) then
+        MemoryStream.Free;
+    end;
+//  end;
+end;
 
 //function LoadFromDFM2(const FileName: string; ParentControl: TWinControl): integer;
 //var

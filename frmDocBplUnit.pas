@@ -79,13 +79,17 @@ type
     //property Modified: Boolean read FModified;
   end;
 
+{$IFDEF NOUSE_PACKAGE}
+  function CreateDocument_VisualCommForms(AOwner: TComponent; AFileName: string): TForm;
+{$ENDIF}
+
 var
   //frmDoc: TfrmDoc;
   FormWasClosed: Boolean;
 
 implementation
 
-uses frmMainInterface, frmConst, UtilUnit;
+uses frmMainInterface, frmConst, UtilUnit, UnitDFMUtil;
 
 {$R *.dfm}
 
@@ -211,13 +215,13 @@ end;
 function TfrmDoc.LoadFromFile(AFileName: string): integer;
 begin
   //Result := ReadDFM(TForm(Self), AFileName);
-  Result := LoadFromDFM(AFileName,TForm(Self));
+  Result := LoadFromDFM2(AFileName,TForm(Self));
 end;
 
 procedure TfrmDoc.SaveToFile(AFileName: string);
 begin
   //WriteDFM(TForm(Self), AFileName);
-  SaveToDFM(AFileName, TForm(Self));
+  SaveToDFM2(AFileName, TForm(Self));
 end;
 
 procedure TfrmDoc.SetFileName(AValue: String);
@@ -395,6 +399,7 @@ begin
   Result := Self;
 end;
 
+{$IFDEF USE_PACKAGE}
 exports //The export name is Case Sensitive
   Create_pjhDocPackage,
   CreateDocument_VisualCommForms;
@@ -404,5 +409,6 @@ initialization
 
 finalization
   UnRegisterClasses([TfrmDoc]);
+{$ENDIF}
 
 end.
