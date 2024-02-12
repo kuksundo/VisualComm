@@ -3,7 +3,7 @@ unit pjhJvCompList;
 interface
 
 uses Windows, Messages, SysUtils, Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Menus,
-    pjhJvCompConst, JvGIFCtrl, pjhTJvLabel, pjhTJvTransparentButton;//
+    pjhJvCompConst, JvGIFCtrl, pjhTJvLabel, pjhTJvTransparentButton, pjhTJvGIFAnimator;//
 
   function GetPaletteList: TStringList;
   function GetBplFileName: string;
@@ -14,7 +14,7 @@ implementation
 
 procedure Register;
 begin
-  RegisterComponents ('pjhJvComp', [TJvGIFAnimator,TpjhTJvLabel, TpjhTJvTransparentButton, TpjhTJvTransparentButton2]); //
+  RegisterComponents ('pjhJvComp', [TpjhTJvGIFImage, TpjhTJvLabel, TpjhTJvTransparentButton, TpjhTJvTransparentButton2]); //
 end;
 
 function GetPaletteList: TStringList;
@@ -23,7 +23,7 @@ var
 begin
   Result := TStringList.Create;
   LStr := 'JvComponent =';
-  LStr := LStr + 'TJvGIFAnimator;TpjhTJvLabel;TpjhTJvTransparentButton;TpjhTJvTransparentButton2;';
+  LStr := LStr + 'TpjhTJvGIFImage;TpjhTJvLabel;TpjhTJvTransparentButton;TpjhTJvTransparentButton2;';
   Result.Add(LStr);
 end;
 
@@ -39,11 +39,11 @@ exports
 initialization
 //bpl을 동적으로 로딩시 RegisterClass해도 GetClass시에 nil이 return 되는 문제 발생
 //해결: exe와 bpl project option에서 vcl.dcp와 rtl.dcp를 포함해줌(release version)
-  RegisterClasses([TJvGIFAnimator,TpjhTJvLabel,TpjhTJvTransparentButton,
+  RegisterClasses([TpjhTJvGIFImage,TpjhTJvLabel,TpjhTJvTransparentButton,
     TpjhTJvTransparentButton2]); //
 
 finalization
-  UnRegisterClasses([TJvGIFAnimator,TpjhTJvLabel,TpjhTJvTransparentButton,
+  UnRegisterClasses([TpjhTJvGIFImage,TpjhTJvLabel,TpjhTJvTransparentButton,
     TpjhTJvTransparentButton2]);//
 
 end.

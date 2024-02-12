@@ -107,6 +107,11 @@ type
     function  IsNonVisualComponent(Component: TComponent): Boolean;
   end;
 
+{$IFDEF NOUSE_PACKAGE}
+  function Create_ObjectInspector(AOwner: TComponent): TForm;
+{$ENDIF}
+
+
 var
   frmProps: TfrmProps;
 
@@ -949,6 +954,7 @@ begin
   //    Params.WndParent := IbMI.MainHandle;
 end;
 
+{$IFDEF USE_PACKAGE}
 exports //The export name is Case Sensitive
   Create_ObjectInspector;
 
@@ -957,6 +963,8 @@ initialization
 
 finalization
   UnRegisterClasses([TfrmProps]);
+{$ENDIF}
+
 
 end.
 
