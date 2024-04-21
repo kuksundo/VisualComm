@@ -3675,7 +3675,7 @@ var
   r			: TRect;
   Diamond		: array[0..7] of TPoint;
   LBmp: TBitmap32;
-  Polygon: TPolygon32;
+//  Polygon: TPolygon32;
   rgn0 :Hrgn;
 begin
   // Draw shadow

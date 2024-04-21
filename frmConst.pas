@@ -9,6 +9,7 @@ const
   VERSION = '(Ver 1.1.8)';
   EASTER_SAMPLE = 'jhpark';
   DefaultFormsFileName = 'Visual_Comm.form';
+  DefaultFormsJsonFileName = 'Visual_Comm_Json.form';
 implementation
 
 end.
